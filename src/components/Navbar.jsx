@@ -1,11 +1,23 @@
 import React from "react";
-import Logo from "../assets/img/logo.png";
-import Avatar from "../assets/img/avatar.png";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
+
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../firebase.config";
+
+import Logo from "../assets/img/logo.png";
+import Avatar from "../assets/img/avatar.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const firebase = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const login = async () => {
+    const response = await signInWithPopup(firebase, provider);
+    console.log(response);
+  };
+
   return (
     <header className="fixed z-50 w-screen p-6 px-16">
       {/* desktop and tablet */}
@@ -36,12 +48,15 @@ const Navbar = () => {
               <p className="text-xs text-white font-semibold">2</p>
             </div>
           </div>
-          <motion.img
-            whileTap={{ scale: 0.7 }}
-            src={Avatar}
-            className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
-            alt="avatarProfile"
-          />
+          <div className="relative">
+            <motion.img
+              whileTap={{ scale: 0.7 }}
+              src={Avatar}
+              className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
+              alt="avatarProfile"
+              onClick={login}
+            />
+          </div>
         </div>
       </div>
       {/* mobile */}
