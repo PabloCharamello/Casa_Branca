@@ -22,6 +22,7 @@ const Navbar = () => {
     if (!user) {
       const {
         user: { refreshToken, providerData },
+        // eslint-disable-next-line
       } = await signInWithPopup(firebaseAuth, provider);
       dispatch({
         type: actionType.SET_USER,
@@ -31,6 +32,16 @@ const Navbar = () => {
     } else {
       setVisibleMenu(!visibleMenu);
     }
+  };
+
+  const logout = () => {
+    setVisibleMenu(false);
+    localStorage.removeItem("user");
+
+    dispatch({
+      type: actionType.SET_USER,
+      user: null,
+    });
   };
 
   return (
@@ -93,14 +104,17 @@ const Navbar = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
               >
-                {user && user.email === "pablocharamello@gmail.com" && (
+                {user && user.email === "pablocharamello2@gmail.com" && (
                   <Link to="./createItem">
                     <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                       New Item <MdAdd />
                     </p>
                   </Link>
                 )}
-                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
+                <p
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                  onClick={logout}
+                >
                   Logout <MdLogout />
                 </p>
               </motion.div>
@@ -111,7 +125,7 @@ const Navbar = () => {
       {/* mobile */}
 
       <motion.div
-        className="flex md:hidden w-full h-full"
+        className="flex md:hidden w-full h-full items-center justify-between"
         initial={{ opacity: 0, y: -80, duration: 1500 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 100 }}
@@ -124,6 +138,63 @@ const Navbar = () => {
           />
           <p className="text-headingColor text-xl font-bold">Casa Branca</p>
         </Link>
+        <div className="relative">
+          <motion.img
+            whileTap={{ scale: 0.7 }}
+            src={user ? user.photoURL : Avatar}
+            className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
+            alt="avatarProfile"
+            onClick={login}
+          />
+          {visibleMenu && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.6 }}
+              className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
+            >
+              {user && user.email === "pablocharamello2@gmail.com" && (
+                <div className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md">
+                  <Link
+                    to="./createItem"
+                    className="flex px-4 items-center gap-3  pt-2 pb-1 transition-all duration-100 ease-in-out text-textColor text-base"
+                  >
+                    New Item
+                    <MdAdd className="ml-2  transition-all duration-100 ease-in-out text-textColor" />
+                  </Link>
+                </div>
+              )}
+              <motion.ul
+                initial={{ opacity: 0, x: 200, duration: 1500 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 200 }}
+                className="flex flex-col"
+              >
+                <li className="px-4  flex items-center gap-3 cursor-pointer hover:bg-slate-100  pt-1 pb-1 transition-all duration-100 ease-in-out text-textColor text-base hover:shadow-md">
+                  Home
+                </li>
+                <li className="px-4  flex items-center gap-3 cursor-pointer hover:bg-slate-100  pt-1 pb-1 transition-all duration-100 ease-in-out text-textColor text-base hover:shadow-md">
+                  Menu
+                </li>
+                <li className="px-4  flex items-center gap-3 cursor-pointer hover:bg-slate-100  pt-1 pb-1 transition-all duration-100 ease-in-out text-textColor text-base hover:shadow-md">
+                  About Us
+                </li>
+                <li className="px-4  flex items-center gap-3 cursor-pointer hover:bg-slate-100  pt-1 pb-1 transition-all duration-100 ease-in-out text-textColor text-base hover:shadow-md">
+                  Service
+                </li>
+              </motion.ul>
+              <div className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md">
+                <p
+                  className="px-4 flex items-center gap-3 pt-1 pb-2  ease-in-out text-textColor text-base"
+                  onClick={logout}
+                >
+                  Logout
+                </p>
+                <MdLogout className="mr-4 mb-1 transition-all duration-100 ease-in-out text-textColor" />
+              </div>
+            </motion.div>
+          )}
+        </div>
       </motion.div>
     </header>
   );
