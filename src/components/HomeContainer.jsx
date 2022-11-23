@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const HomeContainer = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full  ">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full  h-[calc(100%-91px)]">
       <div className="py-2 gap-6 flex-1 flex flex-col items-start justify-center">
         <div className="flex items-center gap-2 justify-center bg-orange-100 px-1 py-1 rounded-full">
           <p className="text-base text-orange-500 font-semibold ml-2">
@@ -18,9 +18,9 @@ const HomeContainer = () => {
             />
           </div>
         </div>
-        <p className="text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]">
+        <p className="text-[2.5rem] font-bold tracking-wide  text-headingColor lg:text-[3.8rem]">
           The fastest delivery in
-          <span className="text-orange-600 text-[3rem] lg:text-[5-rem]">
+          <span className="text-orange-600 text-[3.5rem] lg:text-[5-rem]">
             Your City
           </span>
         </p>

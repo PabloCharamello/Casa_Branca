@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 const App = () => {
   return (
     <AnimatePresence>
-      <div className="flex flex-col bg-primary h-[calc(625px-180px)]">
+      <div className="flex flex-col bg-primary">
         <Navbar />
         <main className="mt-14 md:mt-20 px-3 md:px-16 py-4 w-full">
           <Routes>
