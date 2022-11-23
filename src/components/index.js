@@ -1,3 +1,4 @@
-export { default as Navbar } from "./Navbar.jsx";
-export { default as MainContainer } from "./MainContainer.jsx";
-export { default as CreateContainer } from "./CreateContainer.jsx";
+export { default as Navbar } from "./Navbar";
+export { default as MainContainer } from "./MainContainer";
+export { default as CreateContainer } from "./CreateContainer";
+export { default as HomeContainer } from "./HomeContainer";

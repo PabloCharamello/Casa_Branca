@@ -21,8 +21,8 @@ const Navbar = () => {
   const login = async () => {
     if (!user) {
       const {
-        user: { refreshToken, providerData },
         // eslint-disable-next-line
+        user: { refreshToken, providerData },
       } = await signInWithPopup(firebaseAuth, provider);
       dispatch({
         type: actionType.SET_USER,
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const logout = () => {
     setVisibleMenu(false);
-    localStorage.removeItem("user");
+    localStorage.clear();
 
     dispatch({
       type: actionType.SET_USER,
@@ -92,7 +92,7 @@ const Navbar = () => {
           <div className="relative">
             <motion.img
               whileTap={{ scale: 0.7 }}
-              src={user ? user.photoURL : Avatar}
+              src={user ? user?.photoURL : Avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
               alt="avatarProfile"
               onClick={login}
@@ -130,6 +130,13 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 100 }}
       >
+        <div className="relative flex items-center justify-center">
+          <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
+          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
+            <p className="text-xs text-white font-semibold">2</p>
+          </div>
+        </div>
+
         <Link to={"/"} className="flex items-center gap-2">
           <img
             src={Logo}
@@ -138,6 +145,7 @@ const Navbar = () => {
           />
           <p className="text-headingColor text-xl font-bold">Casa Branca</p>
         </Link>
+
         <div className="relative">
           <motion.img
             whileTap={{ scale: 0.7 }}
@@ -183,11 +191,11 @@ const Navbar = () => {
                   Service
                 </li>
               </motion.ul>
-              <div className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md">
-                <p
-                  className="px-4 flex items-center gap-3 pt-1 pb-2  ease-in-out text-textColor text-base"
-                  onClick={logout}
-                >
+              <div
+                className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md"
+                onClick={logout}
+              >
+                <p className="px-4 flex items-center gap-3 pt-1 pb-2  ease-in-out text-textColor text-base">
                   Logout
                 </p>
                 <MdLogout className="mr-4 mb-1 transition-all duration-100 ease-in-out text-textColor" />
