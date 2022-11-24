@@ -146,7 +146,7 @@ const Navbar = () => {
           <p className="text-headingColor text-xl font-bold">Casa Branca</p>
         </Link>
 
-        <div className="relative">
+        <div className="relative mr-2">
           <motion.img
             whileTap={{ scale: 0.7 }}
             src={user ? user.photoURL : Avatar}
