@@ -49,7 +49,7 @@ const HomeContainer = () => {
           alt="hero-background"
           className="ml-auto h-420 w-full lg:w-auto lg:h-640 "
         />
-        <div className=" xxl:w-40 xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0 md:my-10 md:py-4 lg:px-12 xl:px-12 md:px-16 md:min-w-min sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:h-640 xxl:w-full ">
+        <div className=" xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0 md:my-10 md:py-4 lg:px-12 xl:px-12 md:px-16 md:min-w-min sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:h-640 xxl:w-full ">
           {heroData &&
             heroData.map((e) => (
               <div
