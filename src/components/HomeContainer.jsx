@@ -20,12 +20,16 @@ const HomeContainer = () => {
             />
           </div>
         </div>
-        <p className="text-[2.5rem] font-bold tracking-wide  text-headingColor lg:text-[3.8rem]">
+        <motion.p
+          initial={{ opacity: 0, x: -450 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-[2.5rem] font-bold tracking-wide  text-headingColor lg:text-[3.8rem]"
+        >
           The fastest delivery in
           <span className="text-orange-600 lg:text-7xl text-[3rem] ">
             Your City
           </span>
-        </p>
+        </motion.p>
         <p className="text-base text-textColor md:w-[88%]">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
           quam eum dicta illo laudantium amet nulla. Nam nihil eius assumenda
@@ -62,7 +66,7 @@ const HomeContainer = () => {
                 </p>
 
                 <p className="text-[12px] lg:text-sm text-lighttextGray font-semibold my-1 lg:my-3">
-                  {e.decp}
+                  {e.descrp}
                 </p>
 
                 <p className="text-sm font-semibold text-headingColor">

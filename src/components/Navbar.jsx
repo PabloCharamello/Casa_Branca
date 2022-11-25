@@ -45,12 +45,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16">
+    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm ">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <motion.Link
           to={"/"}
-          initial={{ opacity: 0, y: -80, duration: 1500 }}
+          initial={{ opacity: 0, y: -80 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 100 }}
           className="flex items-center gap-2"
@@ -64,7 +64,7 @@ const Navbar = () => {
         </motion.Link>
         <div className="flex items-center gap-8">
           <motion.ul
-            initial={{ opacity: 0, x: 200, duration: 1500 }}
+            initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-8"
