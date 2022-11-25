@@ -42,7 +42,7 @@ module.exports = {
         md: "768px",
         lg: "1024px",
         xl: "1280px",
-        "2xl": "1536px",
+        xxl: "1536px",
       },
       colors: {
         headingColor: "#2e2e2e",

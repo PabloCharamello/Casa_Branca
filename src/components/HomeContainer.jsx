@@ -47,18 +47,18 @@ const HomeContainer = () => {
         <img
           src={HeroBg}
           alt="hero-background"
-          className="ml-auto h-420 w-full lg:w-auto lg:h-640"
+          className="ml-auto h-420 w-full lg:w-auto lg:h-640 "
         />
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0 md:my-10 md:py-4 lg:px-12 xl:px-12 md:px-16 md:min-w-min sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8">
+        <div className=" xxl:w-40 xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0 md:my-10 md:py-4 lg:px-12 xl:px-12 md:px-16 md:min-w-min sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:h-640 xxl:w-full ">
           {heroData &&
             heroData.map((e) => (
               <div
                 key={e.id}
-                className="  lg:w-190 sm:min-w-full  xl:w-190 md:min-w-fit p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
+                className=" xxl:m-2 lg:w-170  sm:w-40 md:w-32  w-40 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
               >
                 <img
                   src={e.imageSrc}
-                  className="w-20 lg:w-40 -mt-10 lg:-mt-20 "
+                  className="lg:w-40 -mt-10 lg:-mt-20 xxl:w-72 xxl:-m-10 md:w-full md:h-190"
                   alt="I1"
                 />
                 <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
