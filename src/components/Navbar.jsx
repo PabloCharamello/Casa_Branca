@@ -58,9 +58,9 @@ const Navbar = () => {
           <img
             src={Logo}
             alt="ecommerce Logo"
-            className="w-10 drop-shadow-lg"
+            className="w-10 drop-shadow-lg pb-2"
           />
-          <p className="text-headingColor text-xl font-bold">Casa Branca</p>
+          <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
         </motion.Link>
         <div className="flex items-center gap-8">
           <motion.ul
@@ -143,7 +143,7 @@ const Navbar = () => {
             alt="ecommerce Logo"
             className="w-10 drop-shadow-lg"
           />
-          <p className="text-headingColor text-xl font-bold">Casa Branca</p>
+          <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
         </Link>
 
         <div className="relative mr-2">

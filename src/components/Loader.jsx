@@ -3,11 +3,11 @@ import Lottie from "lottie-react";
 import loader from "../assets/lotties/loader.json";
 
 const Loader = () => (
-  <div className="overflow-clip">
+  <div className="">
     <Lottie
       animationData={loader}
       loop={true}
-      className="w-508 h-640 shadow-lg -mt-16"
+      className="w-[315px] sm:w-[380px] sm:mb-3 md:w-[550px] lg:w-[550px] xl:w-[640px]"
     />
   </div>
 );
