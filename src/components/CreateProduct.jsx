@@ -17,6 +17,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import UpToCloud from "./UpToCloud";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -70,14 +71,14 @@ const CreateProduct = () => {
   const saveDetails = () => {};
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center ">
-      <div className="w-[90%] md-w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center mt-2">
+      <div className="w-[90%] md-w-[75%] border border-gray-300 rounded-lg px-4 flex flex-col items-center justify-center">
         {fields && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`w-full p-2 rounded-lg text-center text-lg font-semibold ${
+            className={`w-full rounded-lg text-center text-lg font-semibold ${
               alertStatus === "danger"
                 ? "bg-red-400 text-red-800"
                 : "bg-emerald-400 text-emerald-800"
@@ -97,10 +98,10 @@ const CreateProduct = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className="w-full gap-4">
+        <div className="w-full">
           <select
             onChange={(e) => setCategory(e.target.value)}
-            className="p-2 mt-4 mb-4 rounded-md outline-none w-[163px] border-b-2 border-gray-200 bg-orange-400 hover:shadow-md duration-200 transition-all cursor-pointer text-headingColor text-semibold"
+            className="p-2 mt-2 mb-2 rounded-md outline-none w-[163px] border-b-2 border-gray-200 bg-orange-400 hover:shadow-md duration-200 transition-all cursor-pointer text-headingColor text-semibold"
           >
             <option value="other" className="bg-white">
               Select category
@@ -117,7 +118,7 @@ const CreateProduct = () => {
               ))}
           </select>
         </div>
-        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg">
+        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-[300px] md:h-[300px] lg:h-[300px] sm:h-[300px] cursor-pointer rounded-lg">
           {isLoading ? (
             <Loader />
           ) : (
@@ -126,17 +127,17 @@ const CreateProduct = () => {
                 <>
                   <label
                     htmlFor=""
-                    className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
+                    className="w-full h-full flex flex-col items-center justify-center"
                   >
-                    <div className="w-full h-full flex flex-col items-center justify-center ">
-                      <MdCloudUpload className="text-gray-500 hover:text-gray-700 text-4xl" />
+                    <div className="w-full h-full flex flex-col items-center justify-center">
+                      <UpToCloud />
                       <p className="text-gray-500">Click button to upload</p>
                       <input
                         type="file"
                         name="uploadimage"
                         accept="image/*"
                         onChange={uploadImage}
-                        className="w-44 h-50"
+                        className="w-48 h-50 cursor-pointer mb-4"
                         placeholder="select file"
                       />
                     </div>
@@ -192,7 +193,7 @@ const CreateProduct = () => {
         <div className="flex items-center w-full">
           <button
             type="button"
-            className="mt-4 ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
+            className="m-4 ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
             onClick={saveDetails}
           >
             Save

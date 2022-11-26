@@ -4,3 +4,4 @@ export { default as CreateProduct } from "./CreateProduct";
 export { default as HomeContainer } from "./HomeContainer";
 export { default as Loader } from "./Loader";
 export { default as GirlThinking } from "./GirlThinking";
+export { default as UpToCloud } from "./UpToCloud";

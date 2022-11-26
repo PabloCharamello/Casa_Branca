@@ -45,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm ">
+    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm shadow-white">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <motion.Link
