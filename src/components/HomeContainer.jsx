@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Delivery from "../assets/img/delivery.webp";
 import HeroBg from "../assets/img/heroBg.webp";
-import { heroData } from "../utils/heroData";
+import { heroData } from "../utils/DB";
 
 const HomeContainer = () => {
   return (
@@ -49,19 +49,19 @@ const HomeContainer = () => {
           alt="hero-background"
           className="ml-auto h-420 w-full lg:w-auto lg:h-640 "
         />
-        <div className=" xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0 md:my-10 md:py-4 lg:px-12 xl:px-12 md:px-16 md:min-w-min sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:h-640 xxl:w-full ">
+        <div className=" xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0  lg:px-12 xl:px-12 md:mt-2  sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:w-full xxl:px-56">
           {heroData &&
             heroData.map((e) => (
               <div
                 key={e.id}
-                className=" xxl:m-2 lg:w-170  sm:w-40 md:w-32  w-40 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
+                className=" xxl:m-2 lg:w-150  sm:w-40 md:w-150  w-40 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg lg:h-60"
               >
                 <img
                   src={e.imageSrc}
-                  className="lg:w-40 -mt-10 lg:-mt-20 xxl:w-72 xxl:-m-10 md:w-full md:h-190"
+                  className="lg:w-40 -mt-10 lg:-mt-10 xxl:w-72 xxl:-m-10 md:w-40 md:h-190 xl:w-52"
                   alt="I1"
                 />
-                <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
+                <p className="text-base lg:text-xl font-semibold  text-textColor mt-2 lg:mt-4">
                   {e.name}
                 </p>
 
