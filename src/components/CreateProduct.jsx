@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   MdFastfood,
-  MdCloudUpload,
   MdDelete,
   MdFoodBank,
   MdAttachMoney,
@@ -118,7 +117,7 @@ const CreateProduct = () => {
               ))}
           </select>
         </div>
-        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-[300px] md:h-[300px] lg:h-[300px] sm:h-[300px] cursor-pointer rounded-lg">
+        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-[300px] cursor-pointer rounded-lg">
           {isLoading ? (
             <Loader />
           ) : (
@@ -137,8 +136,7 @@ const CreateProduct = () => {
                         name="uploadimage"
                         accept="image/*"
                         onChange={uploadImage}
-                        className="w-48 h-50 cursor-pointer mb-4"
-                        placeholder="select file"
+                        className="w-[178px] h-50 cursor-pointer mb-4 overflow-x-clip"
                       />
                     </div>
                   </label>

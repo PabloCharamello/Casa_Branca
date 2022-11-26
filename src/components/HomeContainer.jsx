@@ -45,18 +45,18 @@ const HomeContainer = () => {
           <motion.p whileTap={{ scale: 0.8 }}>Order Now!</motion.p>
         </button>
       </div>
-      <div className="py-2 flex flex-1 items-center relative z-10">
+      <div className="py-2 flex flex-1 items-center relative z-10 mb-3 ">
         <img
           src={HeroBg}
           alt="hero-background"
-          className="ml-auto h-420 w-full lg:w-auto lg:h-640 "
+          className="ml-auto h-420 w-full lg:w-auto lg:h-640 md:h-510"
         />
-        <div className="z-10 xxl:p-20 xxl:max-h-10 xxl:items-center xxl:justify-center h-full absolute top-0 left-0 flex items-center justify-center xs:mx-auto md:mx-0  lg:px-12 xl:px-12 md:mt-2  sm:mt-36 xs:p-20 lg:mt-0 gap-4 flex-wrap py-8 xxl:w-full xxl:px-56">
+        <div className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2 sm:mt-36 lg:mt-0 flex-wrap py-2 xxl:px-44">
           {heroData &&
             heroData.map((e) => (
               <div
                 key={e.id}
-                className=" xxl:m-2 lg:w-150  sm:w-40 md:w-150  w-40 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg lg:h-60"
+                className="w-[150px] xxl:m-2 lg:w-174 lg:h-56 sm:w-40 md:w-150 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg md:h-48 md:m-3 "
               >
                 <img
                   src={e.imageSrc}
