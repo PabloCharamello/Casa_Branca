@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MdFastfood, MdFastFood } from "react-icons/md";
+import {
+  MdFastfood,
+  MdCloudUpload,
+  MdDelete,
+  MdFoodBank,
+  MdAttachMoney,
+} from "react-icons/md";
 import { categories } from "../utils/DB";
+import Loader from "./Loader";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -12,7 +19,11 @@ const CreateProduct = () => {
   const [fields, setFields] = useState(false);
   const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const uploadImage = () => {};
+
+  const deleteImage = () => {};
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center ">
@@ -62,7 +73,76 @@ const CreateProduct = () => {
               ))}
           </select>
         </div>
-        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rouded-lg"></div>
+        <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg">
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              {!imageAsset ? (
+                <>
+                  <label
+                    htmlFor=""
+                    className="w-full h-full flex flex-col items-center justify-center cursor-pointer"
+                  >
+                    <div className="w-full h-full flex flex-col items-center justify-center ">
+                      <MdCloudUpload className="text-gray-500 hover:text-gray-700 text-4xl" />
+                      <p className="text-gray-500">Click here to upload</p>
+                    </div>
+                    <input
+                      type="file"
+                      name="uploadimage"
+                      accept="image/*"
+                      onChange={uploadImage}
+                      className="w-0 h-0"
+                    />
+                  </label>
+                </>
+              ) : (
+                <>
+                  <div className="relative h-full">
+                    <img
+                      src={imageAsset}
+                      alt="uploaded product"
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
+                      onClick={deleteImage}
+                    >
+                      <MdDelete className="text-white" />
+                    </button>
+                  </div>
+                </>
+              )}
+            </>
+          )}
+        </div>
+        <div className="w-full flex flex-col md:flex-row items-center gap-3">
+          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+            <MdFoodBank className="text-gray-700 text-2xl" />
+            <input
+              type="text"
+              required
+              value={calories}
+              onChange={(e) => setCalories(e.target.value)}
+              placeholder="Calories"
+              className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 font-semibold text-textColor"
+            />
+          </div>
+
+          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+            <MdAttachMoney className="text-gray-700 text-2xl" />
+            <input
+              type="text"
+              required
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Price"
+              className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 font-semibold text-textColor"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
