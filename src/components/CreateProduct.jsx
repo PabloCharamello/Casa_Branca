@@ -17,6 +17,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import UpToCloud from "./UpToCloud";
+import { saveItem } from "../utils/firebaseFunctions";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -44,7 +45,8 @@ const CreateProduct = () => {
       (error) => {
         console.log(error);
         setFields(true);
-        setMsg("Error while uploading: Try again!");
+        setMsg(`Error while uploading: Try again!`);
+        setAlertStatus("danger");
         setTimeout(() => {
           setFields(false);
           setIsLoading(false);
@@ -59,15 +61,77 @@ const CreateProduct = () => {
           setAlertStatus("Succes");
           setTimeout(() => {
             setFields(false);
-          }, 7000);
+          }, 4000);
         });
       }
     );
   };
 
-  const deleteImage = () => {};
+  const deleteImage = () => {
+    setIsLoading(true);
+    const deleteRef = ref(storage, imageAsset);
+    deleteObject(deleteRef).then(() => {
+      setImageAsset(null);
+      setIsLoading(false);
+      setFields(true);
+      setMsg("Successfully deleted");
+      setAlertStatus("Succes");
+      setTimeout(() => {
+        setFields(false);
+      }, 4000);
+    });
+  };
 
-  const saveDetails = () => {};
+  const saveDetails = () => {
+    setIsLoading(true);
+    try {
+      if (!title || !category || !price || !imageAsset || !calories) {
+        setFields(true);
+        setMsg(`Product details must be completed`);
+        setAlertStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
+      } else {
+        const data = {
+          id: `${Date.now()}`,
+          title,
+          imageURL: imageAsset,
+          category,
+          price,
+          calories: calories,
+          qty: 1,
+        };
+        saveItem(data);
+        setIsLoading(false);
+        setFields(true);
+        setMsg("Data saved successfully");
+        clearData();
+        setAlertStatus("Succes");
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
+      }
+    } catch (error) {
+      console.log(error);
+      setFields(true);
+      setMsg(`Error while uploading: Try again!`);
+      setAlertStatus("danger");
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+    }
+  };
+
+  const clearData = () => {
+    setTitle("");
+    setImageAsset(null);
+    setCategory("Select category");
+    setPrice("");
+    setCalories("");
+  };
 
   return (
     <div className="w-full h-full flex items-center justify-center mt-2">
