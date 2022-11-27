@@ -136,20 +136,6 @@ const CreateProduct = () => {
   return (
     <div className="w-full h-full flex items-center justify-center mt-2">
       <div className="w-[90%] md-w-[75%] border border-gray-300 rounded-lg px-4 flex flex-col items-center justify-center">
-        {fields && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={`w-full rounded-lg text-center text-lg font-semibold ${
-              alertStatus === "danger"
-                ? "bg-red-400 text-red-800"
-                : "bg-emerald-400 text-emerald-800"
-            }`}
-          >
-            {msg}
-          </motion.p>
-        )}
         <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
           <MdFastfood className="text-xl text-gray-700" />
           <input
@@ -226,6 +212,7 @@ const CreateProduct = () => {
             </>
           )}
         </div>
+
         <div className="w-full flex flex-col md:flex-row items-center gap-3">
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
             <MdFoodBank className="text-gray-700 text-2xl" />
@@ -251,11 +238,27 @@ const CreateProduct = () => {
             />
           </div>
         </div>
-
-        <div className="flex items-center w-full">
+        <div>
+          {" "}
+          {fields && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={`z-10 w-full rounded-lg text-center text-lg font-semibold mt-4 py-2 px-4 ${
+                alertStatus === "danger"
+                  ? "bg-red-400 text-red-800"
+                  : "bg-emerald-400 text-emerald-800"
+              }`}
+            >
+              {msg}
+            </motion.p>
+          )}
+        </div>
+        <div className="flex items-center w-full ">
           <button
             type="button"
-            className="m-4 ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
+            className="my-4 ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
             onClick={saveDetails}
           >
             Save
