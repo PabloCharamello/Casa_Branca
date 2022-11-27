@@ -49,14 +49,14 @@ const HomeContainer = () => {
         <img
           src={HeroBg}
           alt="hero-background"
-          className="ml-auto h-420 w-full lg:w-auto lg:h-640 md:h-510"
+          className="ml-auto h-420 w-full lg:w-auto lg:h-640 md:h-510 "
         />
-        <div className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2 sm:mt-36 lg:mt-0 flex-wrap py-2 xxl:px-44">
+        <div className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2  lg:mt-0 flex-wrap py-2 xxl:px-44 mt-3 sm:mt-6">
           {heroData &&
             heroData.map((e) => (
               <div
                 key={e.id}
-                className="w-[150px] xxl:m-2 lg:w-174 lg:h-56 sm:w-40 md:w-150 p-4 xl:w-44 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg md:h-48 md:m-3 "
+                className="w-[150px] xxl:m-2 lg:w-174 lg:h-56 md:w-150 p-4 xl:w-44 sm:w-[200px]  bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg md:h-48 md:m-3 "
               >
                 <img
                   src={e.imageSrc}

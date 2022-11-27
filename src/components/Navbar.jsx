@@ -141,7 +141,7 @@ const Navbar = () => {
           <img
             src={Logo}
             alt="ecommerce Logo"
-            className="w-10 drop-shadow-lg"
+            className="w-9 pb-2 drop-shadow-lg"
           />
           <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
         </Link>

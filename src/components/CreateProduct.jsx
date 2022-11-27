@@ -239,7 +239,6 @@ const CreateProduct = () => {
           </div>
         </div>
         <div>
-          {" "}
           {fields && (
             <motion.p
               initial={{ opacity: 0 }}
