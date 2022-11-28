@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 
-const RowContainer = ({ flag, data }) => {
-  console.log(data);
+const RowContainer = ({ flag, data, scrollValue }) => {
+  const rowContainer = useRef();
+
+  useEffect(() => {
+    rowContainer.current.scrollLeft += scrollValue;
+  }, [scrollValue]);
   return (
     <div
-      className={`w-full my-12 flex items-center gap-3 ${
+      ref={rowContainer}
+      className={`w-full my-12 flex items-center gap-3 scroll-smooth ${
         flag
           ? "overflow-x-scroll scrollbar-none"
           : "overflow-x-hidden flex-wrap"
@@ -16,30 +21,32 @@ const RowContainer = ({ flag, data }) => {
         data.map((item) => (
           <div
             key={item.id}
-            className="w-300 min-w-[300px] md:min-w-[340px] md:w-300 bg-cardOverlay rounded-lg p-4 my-12 h-auto backdrop-blur-lg hover:drop-shadow-md transition-all duration-150"
+            className="w-300 min-w-[300px] md:min-w-[340px] md:w-300 rounded-lg p-4 my-12 h-auto backdrop-blur-lg hover:drop-shadow-md transition-all duration-150"
           >
             <div className="w-full flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
-                src="https://firebasestorage.googleapis.com/v0/b/casa-branca-82b73.appspot.com/o/images%2F1669590282441-i6.webp?alt=media&token=f6c19c23-8773-42bd-ba39-e2c34e432fb1"
+                src={item.imageURL}
                 alt=""
                 className="w-40 -mt-8 drop-shadow-2xl"
               />
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
-              >
-                <MdShoppingBasket className="text-white" />
-              </motion.div>
             </div>
             <div className="w-full flex items-end flex-col justify-end">
               <p className="text-textColor font-semibold text-base md:text-lg">
-                nombre del producto
+                {item.title}
               </p>
-              <p className="mt-1 text-sm text-gray-500">calorias</p>
+              <p className="mt-1 text-sm text-gray-500">
+                Calories: {item.calories}
+              </p>
               <div className="flex items-center gap-8">
+                <motion.div
+                  whileTap={{ scale: 0.75 }}
+                  className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
+                >
+                  <MdShoppingBasket className="text-white" />
+                </motion.div>
                 <p className="text-lg text-headingColor font-semibold ">
-                  <span className="text-sm text-red-500">$</span> precio
+                  <span className="text-sm text-red-500">$</span> {item.price}
                 </p>
               </div>
             </div>
