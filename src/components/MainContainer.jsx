@@ -3,8 +3,11 @@ import HomeContainer from "./HomeContainer";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
+import { useStateValue } from "../context/StateProvider";
 
 const MainContainer = () => {
+  const [{ foodItems }, dispatch] = useStateValue();
+
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <HomeContainer />
@@ -12,7 +15,7 @@ const MainContainer = () => {
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
           <p className="text-2x1 font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-1 before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
-            Our fresh & healthy fruits
+            Our delicious and healthy ice cream
           </p>
           <div className="hidden md:flex gap-3 items-center">
             <motion.div
@@ -29,7 +32,10 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
-        <RowContainer flag={true} />
+        <RowContainer
+          flag={true}
+          data={foodItems?.filter((e) => e.category === "icecreams")}
+        />
       </section>
     </div>
   );
