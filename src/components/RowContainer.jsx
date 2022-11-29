@@ -20,23 +20,23 @@ const RowContainer = ({ flag, data, scrollValue }) => {
       {data &&
         data.map((item) => (
           <div
-            key={item.id}
-            className="w-300 min-w-[300px] md:min-w-[340px] md:w-300 rounded-lg p-4 my-12 h-auto backdrop-blur-lg hover:drop-shadow-md transition-all duration-150"
+            key={item?.id}
+            className="w-300  md:min-w-[340px] md:w-300 rounded-lg p-4 my-12 h-auto backdrop-blur-lg hover:drop-shadow-md transition-all duration-150"
           >
             <div className="w-full flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
-                src={item.imageURL}
+                src={item?.imageURL}
                 alt=""
-                className="w-40 -mt-8 drop-shadow-2xl"
+                className="w-auto -mt-8 h-[200px] drop-shadow-2xl"
               />
             </div>
             <div className="w-full flex items-end flex-col justify-end">
               <p className="text-textColor font-semibold text-base md:text-lg">
-                {item.title}
+                {item?.title}
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                Calories: {item.calories}
+                Calories: {item?.calories}
               </p>
               <div className="flex items-center gap-8">
                 <motion.div
@@ -46,7 +46,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                   <MdShoppingBasket className="text-white" />
                 </motion.div>
                 <p className="text-lg text-headingColor font-semibold ">
-                  <span className="text-sm text-red-500">$</span> {item.price}
+                  <span className="text-sm text-red-500">$</span> {item?.price}
                 </p>
               </div>
             </div>
