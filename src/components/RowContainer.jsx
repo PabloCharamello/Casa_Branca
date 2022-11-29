@@ -21,17 +21,17 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item?.id}
-            className="w-300  md:min-w-[340px] md:w-300 rounded-lg p-4 my-12 h-auto backdrop-blur-lg hover:drop-shadow-md transition-all duration-150"
+            className="w-300  md:min-w-[340px] h-[250px] md:w-300 rounded-lg p-4 my-12  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end"
           >
             <div className="w-full flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={item?.imageURL}
                 alt=""
-                className="w-auto -mt-8 h-[200px] drop-shadow-2xl"
+                className="w-auto -mt-8 h-[160px] drop-shadow-2xl"
               />
             </div>
-            <div className="w-full flex items-end flex-col justify-end">
+            <div className="w-full flex items-end flex-col ">
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
