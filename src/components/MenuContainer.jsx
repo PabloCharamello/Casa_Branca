@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoFastFood } from "react-icons/io5";
 import { categories } from "../utils/DB";
 
@@ -16,20 +16,21 @@ const MenuContainer = () => {
             categories.map((category) => (
               <div
                 key={category.id}
-                className={`group ${
+                className={`group shadow-md ${
                   filter === category.urlParamName
                     ? "bg-cartNumBg"
                     : "bg-cardMenu"
-                } hover:bg-red-600 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center transition-all duration-150 ease-in-out`}
+                } hover:md:bg-red-400 hover:lg:bg-red-400 hover:xl:bg-red-400 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center transition-all duration-150 ease-in-out`}
+                onClick={() => setFilter(category.urlParamName)}
               >
                 <div
                   className={`w-10 h-10 ${
                     filter === category.urlParamName
-                      ? "bg-cardMenu"
+                      ? "bg-red-800"
                       : "bg-cartNumBg"
                   } rounded-full group-hover:bg-cardMenu group-hover:shadow-xl flex items-center justify-center`}
                 >
-                  <IoFastFood className="text-card group-hover:text-textColor text-xl" />
+                  <IoFastFood className="text-white group-hover:text-textColor text-xl" />
                 </div>
                 <p
                   className={`text-sm ${
