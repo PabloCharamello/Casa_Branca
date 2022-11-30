@@ -18,7 +18,7 @@ const MainContainer = () => {
 
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
-          <p className="text-2x1 mb-10 lg:mt-2 sm:mt-24  font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-1 before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
+          <p className="text-2x1 mt-12 sm:mt-44 mb-0 lg:mt-2 font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-1 before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
             Our delicious and healthy ice creams
           </p>
           <div className="hidden md:flex gap-3 items-center">

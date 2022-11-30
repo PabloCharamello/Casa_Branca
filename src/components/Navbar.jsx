@@ -48,7 +48,7 @@ const Navbar = () => {
     <header className="fixed z-50 w-screen  p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm shadow-white">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-[30px] items-center justify-between">
-        <motion.Link
+        <Link
           to={"/"}
           initial={{ opacity: 0, y: -80 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const Navbar = () => {
             className="w-10 drop-shadow-lg pb-2"
           />
           <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
-        </motion.Link>
+        </Link>
         <div className="flex items-center gap-8">
           <motion.ul
             initial={{ opacity: 0, x: 200 }}
