@@ -164,6 +164,7 @@ const CreateProduct = () => {
         <div className="w-full">
           <select
             onChange={(e) => setCategory(e.target.value)}
+            required
             className="p-2 mt-2 mb-2 rounded-md outline-none w-[163px] border-b-2 border-gray-200 bg-orange-400 hover:shadow-md duration-200 transition-all cursor-pointer text-headingColor text-semibold"
           >
             <option value="other" className="bg-white">
@@ -172,6 +173,7 @@ const CreateProduct = () => {
             {categories &&
               categories.map((item) => (
                 <option
+                  required
                   key={item.id}
                   className="border-0 capitalize bg-white text-gray-600 text-sm"
                   value={item.urlParamName}
@@ -196,6 +198,7 @@ const CreateProduct = () => {
                       <UpToCloud />
                       <p className="text-gray-500">Click button to upload</p>
                       <input
+                        required
                         type="file"
                         name="uploadimage"
                         accept="image/*"
@@ -209,6 +212,7 @@ const CreateProduct = () => {
                 <>
                   <div className="relative h-full">
                     <img
+                      required
                       src={imageAsset}
                       alt="uploaded product"
                       className="w-full h-full object-cover"

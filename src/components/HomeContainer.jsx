@@ -51,7 +51,11 @@ const HomeContainer = () => {
           alt="hero-background"
           className="ml-auto h-420 w-full lg:w-auto lg:h-640 md:h-510 "
         />
-        <div className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2  lg:mt-0 flex-wrap py-2 xxl:px-44 mt-3 sm:mt-6">
+        <motion.div
+          initial={{ opacity: 0, x: 400 }}
+          animate={{ opacity: 1, x: 0 }}
+          className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2  lg:mt-0 flex-wrap py-2 xxl:px-44 mt-3 sm:mt-6"
+        >
           {heroData &&
             heroData.map((e) => (
               <div
@@ -76,7 +80,7 @@ const HomeContainer = () => {
                 </p>
               </div>
             ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

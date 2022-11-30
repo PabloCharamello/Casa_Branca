@@ -11,7 +11,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
   return (
     <div
       ref={rowContainer}
-      className={`w-screen flex items-center gap-3 scroll-smooth ${
+      className={`w-full flex items-center gap-3 scroll-smooth h-full py-5 ${
         flag
           ? "overflow-x-scroll scrollbar-none"
           : "overflow-x-hidden flex-wrap justify-center"
@@ -21,17 +21,17 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item?.id}
-            className="w-[300px] sm:min-w-[150px  md:min-w-[340px] h-[290px] sm:h-[240px] rounded-lg p-4 -my-3  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-150 md:h-[300px] lg:h-[300px] lg:p-"
+            className="w-[250px] h-full sm:w-[200px]  md:w-[200px] lg:w-[200px] sm:h-full rounded-lg lg:p-4 p-14 lg:my-3 md:-my-5  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-150 md:h-auto lg:h-full lg:min-w-[250px] xl:h-full xl:w-auto"
           >
-            <div className="w-[250px] flex items-center justify-between ">
+            <div className="w-[170px] md:w-[140px] md:h-auto flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={item?.imageURL}
                 alt=""
-                className="w-auto -mt-8 h-[120px] sm:h-[100px] md:h-[160px] lg:h-[160px] xxl:h-[160px] drop-shadow-2xl"
+                className="md:w-[170px] -mt-8 sm:h-full lg:w-[200px] lg:h-auto xxl:h-[160px] drop-shadow-2xl content-center xl:w-full xl:h-auto md:h-full xxl:h-full"
               />
             </div>
-            <div className="w-full flex items-end flex-col ">
+            <div className="w-full flex items-end flex-col">
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
