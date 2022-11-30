@@ -54,20 +54,20 @@ const HomeContainer = () => {
         <motion.div
           initial={{ opacity: 0, x: 400 }}
           animate={{ opacity: 1, x: 0 }}
-          className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2  lg:mt-0 flex-wrap py-2 xxl:px-44 mt-3 sm:mt-6 md:w-full"
+          className=" z-10 absolute xxl:w-full top-0 left-0 flex items-center justify-center md:mx-0  lg:px-2 xl:px-12 md:mt-2 gap-2 lg:mt-0 flex-wrap py-2 xxl:px-44 mt-3 sm:mt-6 md:w-full lg:w-[600px]"
         >
           {heroData &&
             heroData.map((e) => (
               <div
                 key={e.id}
-                className="w-[160px] m-3 xxl:m-2 lg:w-174 lg:h-56 md:w-32  xl:w-44 sm:w-[200px]  bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg md:h-48 md:m-3 "
+                className="w-[155px] md:w-[150px]  xxl:mx-2 lg:w-174 lg:mt-20 sm:w-[200px]  lg:p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-end drop-shadow-lg md:h-48 md:mx-0 sm:my-4 sm:h-64 my-5 sm:mx-5 xl:w-[200px] xl:mx-3"
               >
                 <img
                   src={e.imageSrc}
-                  className="lg:w-40 -mt-10 lg:-mt-10 xxl:w-72 xxl:-m-10 md:w-32md:h-190 xl:w-52"
-                  alt="I1"
+                  className=" -mt-10 xxl:w-72 xxl:-m-10 md:w-32 md:h-190 xl:w-52 lg:-m-5"
+                  alt="menus in hero "
                 />
-                <p className="text-base lg:text-lg font-semibold  text-textColor mt-2 lg:mt-4">
+                <p className="text-base lg:text-lg font-semibold text-textColor mt-2 lg:mt-4">
                   {e.name}
                 </p>
 

@@ -6,17 +6,17 @@ import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
 
 const MenuContainer = () => {
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState({});
 
   const [{ foodItems }, dispatch] = useStateValue();
 
   return (
-    <section className="w-full my-10 " id="Menu">
+    <section className="w-full my-5 " id="Menu">
       <div className="w-full flex flex-col items-center justify-center">
         <p className="text-2x1 font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-16 before:h-1 before:-bottom-1 mr-auto before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
           Our hot dishes
         </p>
-        <div className="w-full flex items-center justify-start lg:justify-center sm:gap-7 md:gap-8 lg:gap-8 xl:gap-8 gap-3 py-20 overflow-x-scroll scrollbar-none">
+        <div className="w-full flex items-center justify-start lg:justify-center sm:gap-7 md:gap-8 lg:gap-8 xl:gap-8 gap-3 mt-16 pb-6 overflow-x-scroll scrollbar-none">
           {categories &&
             categories.map((category) => (
               <motion.div

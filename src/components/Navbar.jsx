@@ -45,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed z-50 w-screen  p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm shadow-white">
+    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm bg-orange-500 bg-opacity-90 shadow-white">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-[30px] items-center justify-between">
         <Link
@@ -60,7 +60,7 @@ const Navbar = () => {
             alt="ecommerce Logo"
             className="w-10 drop-shadow-lg pb-2"
           />
-          <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
+          <p className="text-slate-100 casaBranca text-semibold">Casa Branca</p>
         </Link>
         <div className="flex items-center gap-8">
           <motion.ul
@@ -131,7 +131,7 @@ const Navbar = () => {
         exit={{ opacity: 0, y: 100 }}
       >
         <div className="relative flex items-center justify-center">
-          <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
+          <MdShoppingBasket className="text-slate-700 text-2xl cursor-pointer" />
           <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
             <p className="text-xs text-white font-semibold">2</p>
           </div>
@@ -143,7 +143,7 @@ const Navbar = () => {
             alt="ecommerce Logo"
             className="w-9 pb-2 drop-shadow-lg"
           />
-          <p className="text-gray-700 casaBranca text-semibold">Casa Branca</p>
+          <p className="text-slate-100 casaBranca text-semibold">Casa Branca</p>
         </Link>
 
         <div className="relative mr-2">

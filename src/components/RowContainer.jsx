@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
+import NotFound from "../assets/img/NotFound.svg";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
@@ -17,41 +18,57 @@ const RowContainer = ({ flag, data, scrollValue }) => {
           : "overflow-x-hidden flex-wrap justify-center "
       }`}
     >
-      {data &&
+      {data?.length > 0 ? (
         data.map((item) => (
           <div
+            id="categories"
             key={item?.id}
-            className="w-[250px] h-full sm:w-[200px]  md:w-[220px] lg:w-[200px] sm:h-full rounded-lg lg:p-2 p-10 lg:my-3 sm:-my-4 md:-my-5  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-150 md:h-auto lg:h-full lg:min-w-[250px] xl:h-full xl:w-auto md:h-full"
+            className="w-[250px] h-60 sm:w-[200px] md:h-60 mt-8 md:mt-10 md:w-[220px] lg:min-w-[250px] sm:h-full rounded-lg lg:p-2 p-10 lg:my-3 sm:m-2   backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-150 lg:min-h-[240px]  xl:h-full xl:w-auto bg-slate-50 lg:mt-8"
           >
-            <div className="w-[170px] md:w-[140px] sm:h-40 md:h-auto flex items-center justify-between">
+            <div className="w-[190px] md:w-[190px] sm:h-20 md:h-auto flex items-center lg:h-auto justify-center">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={item?.imageURL}
                 alt=""
-                className="md:w-[170px] -mt-8 sm:h-full lg:w-[200px] lg:h-auto drop-shadow-2xl items-center xl:w-full xl:h-auto md:h-full xxl:h-full"
+                className="md:h-36 md:w-auto -mt-8 sm:h-36 sm:w-auto w-auto h-36 drop-shadow-xl items-center xl:h-36 xl:w-auto xxl:w-auto xxl:h-36 object-contain"
               />
             </div>
-            <div className="flex items-start flex-col lg:justify-end w-full md:w-full">
-              <p className="text-textColor font-semibold text-base md:text-lg ">
+            <div className="flex items-start flex-col lg:justify-end w-full md:w-full h-28">
+              <p className="text-textColor font-semibold text-base ">
                 {item?.title}
               </p>
               <p className="mt-1 text-sm text-gray-500">
                 Calories: {item?.calories}
               </p>
-              <div className="w-full flex items-center gap-8 justify-end">
+              <div className="w-full flex items-center gap-4 justify-end">
                 <p className="text-lg text-headingColor font-semibold ">
                   <span className="text-sm text-red-500">$</span> {item?.price}
                 </p>
                 <motion.div
                   whileTap={{ scale: 0.75 }}
-                  className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center cursor-pointer"
                 >
                   <MdShoppingBasket className="text-white" />
                 </motion.div>
               </div>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="w-full flex flex-col items-center justify-center">
+          <img src={NotFound} className="h-340" />
+          <p className="text-xl font-semibold text-slate-600 capitalize">
+            Items not available
+          </p>
+          <motion.a
+            whileTap={{ scale: 0.9 }}
+            href="#categories"
+            className="text-xl font-semibold text-orange-400 text-center underline"
+          >
+            Select a category to show our dishes
+          </motion.a>
+        </div>
+      )}
     </div>
   );
 };
