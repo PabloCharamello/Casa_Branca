@@ -57,6 +57,7 @@ module.exports = {
         cartTotal: "#343739",
         cardOverlay: "rgb(256,256,256,0.4)",
         lighttextGray: "#9ca0ab",
+        cardMenu: "rgba(256,256,256,0.8)",
       },
     },
   },

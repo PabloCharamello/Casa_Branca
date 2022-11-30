@@ -161,7 +161,7 @@ const Navbar = () => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
             >
-              {user && user.email === "pablocharamello2@gmail.com" && (
+              {user && user.email === process.env.REACT_APP_ADMIN_MAIL && (
                 <div className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md">
                   <Link
                     to="./createItem"
