@@ -11,19 +11,19 @@ const RowContainer = ({ flag, data, scrollValue }) => {
   return (
     <div
       ref={rowContainer}
-      className={`w-full my-12 flex items-center gap-3 scroll-smooth h-[400px] ${
+      className={`w-screen flex items-center gap-3 scroll-smooth ${
         flag
           ? "overflow-x-scroll scrollbar-none"
-          : "overflow-x-hidden flex-wrap"
+          : "overflow-x-hidden flex-wrap justify-center"
       }`}
     >
       {data &&
         data.map((item) => (
           <div
             key={item?.id}
-            className="w-[300px] sm:min-w-[150px  md:min-w-[340px] h-[270px] sm:h-[240px] rounded-lg p-4 my-12  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-50"
+            className="w-[300px] sm:min-w-[150px  md:min-w-[340px] h-[290px] sm:h-[240px] rounded-lg p-4 -my-3  backdrop-blur-lg hover:drop-shadow-md transition-all duration-150 flex flex-col items-center justify-end bg-slate-150 md:h-[300px] lg:h-[300px] lg:p-"
           >
-            <div className="w-[180px] flex items-center justify-between ">
+            <div className="w-[250px] flex items-center justify-between ">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={item?.imageURL}

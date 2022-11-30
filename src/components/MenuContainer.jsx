@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { IoFastFood } from "react-icons/io5";
 import { categories } from "../utils/DB";
+import { motion } from "framer-motion";
+import RowContainer from "./RowContainer";
+import { useStateValue } from "../context/StateProvider";
 
 const MenuContainer = () => {
-  const [filter, setFilter] = useState("chicken");
+  const [filter, setFilter] = useState(null);
+
+  const [{ foodItems }, dispatch] = useStateValue();
 
   return (
     <section className="w-full my-6" id="Menu">
@@ -14,13 +19,15 @@ const MenuContainer = () => {
         <div className="w-full flex items-center justify-start lg:justify-center gap-8 py-6 overflow-x-scroll scrollbar-none">
           {categories &&
             categories.map((category) => (
-              <div
+              <motion.div
+                whileTap={{ scale: 0.8 }}
+                duration={{ duration: 100 }}
                 key={category.id}
                 className={`group shadow-md ${
                   filter === category.urlParamName
                     ? "bg-cartNumBg"
                     : "bg-cardMenu"
-                } hover:md:bg-red-400 hover:lg:bg-red-400 hover:xl:bg-red-400 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center transition-all duration-150 ease-in-out`}
+                } hover:md:bg-red-400 hover:lg:bg-red-400 hover:xl:bg-red-400 w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center `}
                 onClick={() => setFilter(category.urlParamName)}
               >
                 <div
@@ -41,8 +48,14 @@ const MenuContainer = () => {
                 >
                   {category.name}
                 </p>
-              </div>
+              </motion.div>
             ))}
+        </div>
+        <div className="w-full">
+          <RowContainer
+            flag={false}
+            data={foodItems?.filter((n) => n.category === filter)}
+          />
         </div>
       </div>
     </section>
