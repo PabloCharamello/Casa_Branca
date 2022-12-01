@@ -5,12 +5,15 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
 import MenuContainer from "./MenuContainer";
+import CartContainer from "./CartContainer";
 
 const MainContainer = () => {
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
   const incrementScrollValue = scrollValue + 200;
   const decrementScrollValue = scrollValue - 200;
+
+  useEffect(() => {}, [scrollValue, cartShow]);
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
@@ -18,7 +21,7 @@ const MainContainer = () => {
 
       <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
-          <p className="text-2x1 mt-12 sm:mt-44 lg:mt-2 font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-1 before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100 lg:mb-10 mb-10 ">
+          <p className="text-2x1 mt-28 mb-3 sm:mt-44 lg:mt-2 font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-1 before:l-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100 lg:mb-10 ">
             Our delicious and healthy ice creams
           </p>
           <div className="hidden md:flex gap-3 items-center">
@@ -45,6 +48,8 @@ const MainContainer = () => {
         />
       </section>
       <MenuContainer />
+
+      {cartShow && <CartContainer />}
     </div>
   );
 };

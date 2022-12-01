@@ -15,7 +15,7 @@ const Navbar = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   const [visibleMenu, setVisibleMenu] = useState(false);
 
   const login = async () => {
@@ -44,8 +44,15 @@ const Navbar = () => {
     });
   };
 
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
+
   return (
-    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16 backdrop-blur-sm bg-orange-500 bg-opacity-90 shadow-white">
+    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16  bg-orange-500 shadow-white">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-[30px] items-center justify-between">
         <Link
@@ -83,11 +90,18 @@ const Navbar = () => {
             </li>
           </motion.ul>
 
-          <div className="relative flex items-center justify-center">
+          <div
+            className="relative flex items-center justify-center"
+            onClick={showCart}
+          >
             <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
-            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
-              <p className="text-xs text-white font-semibold">2</p>
-            </div>
+            {cartItems && cartItems.length > 0 && (
+              <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
           <div className="relative">
             <motion.img
@@ -104,7 +118,7 @@ const Navbar = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
               >
-                {user && user.email === "pablocharamello2@gmail.com" && (
+                {user && user.email === "pablocharamello@gmail.com" && (
                   <Link to="./createItem">
                     <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                       New Item <MdAdd />
@@ -130,11 +144,18 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 100 }}
       >
-        <div className="relative flex items-center justify-center">
+        <div
+          className="relative flex items-center justify-center"
+          onClick={showCart}
+        >
           <MdShoppingBasket className="text-slate-700 text-2xl cursor-pointer" />
-          <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
-            <p className="text-xs text-white font-semibold">2</p>
-          </div>
+          {cartItems && cartItems.length > 0 && (
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
+              <p className="text-xs text-white font-semibold">
+                {cartItems.length}
+              </p>
+            </div>
+          )}
         </div>
 
         <Link to={"/"} className="flex items-center gap-2">

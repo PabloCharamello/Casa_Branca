@@ -1,14 +1,31 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 import NotFound from "../assets/img/NotFound.svg";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
+  const [items, setItems] = useState([]);
+  const [{ cartItems }, dispatch] = useStateValue();
+
+  const addToCart = () => {
+    dispatch({
+      type: actionType.SET_CART_ITEMS,
+      cartItems: items,
+    });
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  };
 
   useEffect(() => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
+
+  useEffect(() => {
+    addToCart();
+  }, [items]);
+
   return (
     <div
       ref={rowContainer}
@@ -47,6 +64,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                 <motion.div
                   whileTap={{ scale: 0.75 }}
                   className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center cursor-pointer"
+                  onClick={() => setItems([...cartItems, item])}
                 >
                   <MdShoppingBasket className="text-white" />
                 </motion.div>
@@ -63,9 +81,9 @@ const RowContainer = ({ flag, data, scrollValue }) => {
           <motion.a
             whileTap={{ scale: 0.9 }}
             href="#categories"
-            className="text-xl font-semibold text-orange-400 text-center underline"
+            className="text-xl font-semibold text-orange-400 text-center underline italic hover:text-orange-600 transition-colors duration-150"
           >
-            Select a category to show our dishes
+            Select a category to show our products!
           </motion.a>
         </div>
       )}
