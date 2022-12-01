@@ -2,14 +2,17 @@ import React from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { motion } from "framer-motion";
 import { RiRefreshFill } from "react-icons/ri";
+import { MdCloseFullscreen } from "react-icons/md";
 import { BiMinus } from "react-icons/bi";
 import { BiPlus } from "react-icons/bi";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import emptyCart from "../assets/img/c1.webp";
+import EmptyCartLottie from "./EmptyCartLottie";
+import LineasAbstractas from "./LineasAbstractas";
 
-import Lottie from "lottie-react";
-import girlThinking from "../assets/lotties/girlThinking.json";
+// import Lottie from "lottie-react";
+// import girlThinking from "../assets/lotties/girlThinking.json";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems }, dispatch] = useStateValue();
@@ -32,9 +35,9 @@ const CartContainer = () => {
         <motion.div
           whileTap={{ scale: 0.75 }}
           onClick={showCart}
-          className="text-orange-500 text-3x1 relative top-[60px] text-[30px] font-bold hover:bg-gray-600 right-[14px] transition-all p-[4px] rounded-tl-[28px] rounded-md"
+          className="text-orange-500 text-3x1 relative top-[59px] text-[30px] font-bold hover:bg-gray-600 right-[16px] transition-all p-[4px] rounded-tl-[32px] rounded-md"
         >
-          <RiRefreshFill />
+          <MdCloseFullscreen className="z-[200]" />
         </motion.div>
         {/* <p className="text-textColor text-lg font-semibold">Cart</p> */}
         <motion.p
@@ -49,16 +52,16 @@ const CartContainer = () => {
       {cartItems && cartItems.length > 0 ? (
         <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
           {/* cart items section */}
-
-          <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
+          <LineasAbstractas />
+          <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none ">
             {/* cart items */}
             {cartItems &&
               cartItems.map((item) => (
-                <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
+                <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2 ">
                   <img
                     src={item.imageURL}
                     alt=""
-                    className="w-20 h-14 max-w-[55px] rounded-full object-contain"
+                    className="w-20 h-14 max-w-[55px] rounded-full object-contain z-[110]"
                   />
 
                   {/* name section */}
@@ -115,7 +118,10 @@ const CartContainer = () => {
         </div>
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-6">
-          <img src={emptyCart} className="w-300" alt="emptyCart" />
+          {/* <img src={emptyCart} className="w-300" alt="emptyCart" /> */}
+          <div>
+            <EmptyCartLottie />
+          </div>
           <p className="text-xl text-textColor font-semibold">
             Add some items to your cart
           </p>
