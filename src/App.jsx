@@ -1,3 +1,4 @@
+import env from "react-dotenv";
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./tailwind.css";

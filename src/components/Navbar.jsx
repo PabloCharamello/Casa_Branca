@@ -105,7 +105,7 @@ const Navbar = () => {
           </div>
           <div className="relative">
             <motion.img
-              whileTap={{ scale: 0.69 }}
+              whileTap={{ scale: 0.7 }}
               src={user ? user?.photoURL : Avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
               alt="avatarProfile"
@@ -118,7 +118,7 @@ const Navbar = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
               >
-                {user && user.email === "pablocharamello@gmail.com" && (
+                {user && user.email === process.env.REACT_APP_ADMIN_AUTH && (
                   <Link to="./createItem">
                     <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                       New Item <MdAdd />

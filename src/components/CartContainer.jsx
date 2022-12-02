@@ -11,6 +11,7 @@ import CartItem from "./CartItem";
 
 // import Lottie from "lottie-react";
 // import girlThinking from "../assets/lotties/girlThinking.json";
+const deliveryFees = 2.5;
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -88,7 +89,9 @@ const CartContainer = () => {
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total </p>
-              <p className="text-gray-200 text-xl font-semibold">$</p>
+              <p className="text-gray-200 text-xl font-semibold">
+                $ {total + deliveryFees}
+              </p>
             </div>
 
             {user ? (
