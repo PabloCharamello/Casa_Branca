@@ -107,7 +107,7 @@ const CartContainer = () => {
               <p className="text-gray-200 text-xl font-semibold">$11.5</p>
             </div>
 
-            {user && (
+            {user ? (
               <motion.button
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg transition-all duration-150 ease-out"
                 type="button"
@@ -115,6 +115,13 @@ const CartContainer = () => {
               >
                 Chek out
               </motion.button>
+            ) : (
+              <button
+                className="w-full p-2 rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-2 hover:shadow-lg transition-all duration-150 ease-out"
+                disabled={true}
+              >
+                Please login to chek out
+              </button>
             )}
           </div>
         </div>
