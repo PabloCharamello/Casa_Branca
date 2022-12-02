@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import lineasAbstractas from "../assets/lotties/lineasAbstractas.json";
 
 const LineasAbstractas = () => (
-  <div className="absolute opacity-20 rotate-[180deg] top-28">
+  <div className="absolute opacity-20 right-28 rotate-[180deg] top-28 overflow-clip w-[265px] h-[450px] flex items-center">
     <Lottie
       animationData={lineasAbstractas}
       loop={true}

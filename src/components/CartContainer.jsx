@@ -15,7 +15,7 @@ import LineasAbstractas from "./LineasAbstractas";
 // import girlThinking from "../assets/lotties/girlThinking.json";
 
 const CartContainer = () => {
-  const [{ cartShow, cartItems }, dispatch] = useStateValue();
+  const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
 
   const showCart = () => {
     dispatch({
@@ -52,8 +52,8 @@ const CartContainer = () => {
       {cartItems && cartItems.length > 0 ? (
         <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
           {/* cart items section */}
-          <LineasAbstractas />
           <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none ">
+            <LineasAbstractas />
             {/* cart items */}
             {cartItems &&
               cartItems.map((item) => (
@@ -107,13 +107,15 @@ const CartContainer = () => {
               <p className="text-gray-200 text-xl font-semibold">$11.5</p>
             </div>
 
-            <motion.button
-              className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg transition-all duration-150 ease-out"
-              type="button"
-              whileTap={{ scale: 0.8 }}
-            >
-              Chek out
-            </motion.button>
+            {user && (
+              <motion.button
+                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg transition-all duration-150 ease-out"
+                type="button"
+                whileTap={{ scale: 0.8 }}
+              >
+                Chek out
+              </motion.button>
+            )}
           </div>
         </div>
       ) : (

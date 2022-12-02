@@ -5,7 +5,6 @@ import {
   MdDelete,
   MdFoodBank,
   MdAttachMoney,
-  MdSentimentSatisfied,
 } from "react-icons/md";
 import { categories } from "../utils/DB";
 import Loader from "./Loader";
