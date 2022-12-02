@@ -1,28 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { motion } from "framer-motion";
 import { RiRefreshFill } from "react-icons/ri";
 import { MdCloseFullscreen } from "react-icons/md";
-import { BiMinus } from "react-icons/bi";
-import { BiPlus } from "react-icons/bi";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import emptyCart from "../assets/img/c1.webp";
 import EmptyCartLottie from "./EmptyCartLottie";
 import LineasAbstractas from "./LineasAbstractas";
+import CartItem from "./CartItem";
 
 // import Lottie from "lottie-react";
 // import girlThinking from "../assets/lotties/girlThinking.json";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
-
+  const [flag, setFlag] = useState(1);
+  const [total, setTotal] = useState(0);
   const showCart = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
     });
   };
+
+  useEffect(() => {
+    let totalPrice = cartItems.reduce(function (accumulator, item) {
+      return accumulator + item.qty * item.price;
+    }, 0);
+    setTotal(totalPrice);
+    console.log(total);
+  }, [total, flag]);
 
   return (
     <motion.div
@@ -57,35 +64,12 @@ const CartContainer = () => {
             {/* cart items */}
             {cartItems &&
               cartItems.map((item) => (
-                <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2 ">
-                  <img
-                    src={item.imageURL}
-                    alt=""
-                    className="w-20 h-14 max-w-[55px] rounded-full object-contain z-[110]"
-                  />
-
-                  {/* name section */}
-                  <div className="flex flex-col gap-2">
-                    <p className="text-base text-gray-50">{item.title}</p>
-                    <p className="text-sm text-block text-gray-300 font-semibold">
-                      $ {item.price}
-                    </p>
-                  </div>
-                  {/* buttom section */}
-                  <div className="group flex items-center gap-2 ml-auto cursor-pointer">
-                    <motion.div whileTap={{ scale: 0.75 }}>
-                      <BiMinus className="text-gray-50" />
-                    </motion.div>
-
-                    <p className="w-5 h-5 rounded-sm bg-cardBg text-gray-50 flex items-center justify-center">
-                      {item.qty}
-                    </p>
-
-                    <motion.div whileTap={{ scale: 0.75 }}>
-                      <BiPlus className="text-gray-50" />
-                    </motion.div>
-                  </div>
-                </div>
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  setFlag={setFlag}
+                  flag={flag}
+                />
               ))}
           </div>
 
@@ -93,7 +77,7 @@ const CartContainer = () => {
           <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly p-8 py-2">
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg ">Sub total</p>
-              <p className="text-gray-400 text-lg ">$8.5</p>
+              <p className="text-gray-400 text-lg ">$ {total}</p>
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg ">Delivery</p>
@@ -104,7 +88,7 @@ const CartContainer = () => {
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total </p>
-              <p className="text-gray-200 text-xl font-semibold">$11.5</p>
+              <p className="text-gray-200 text-xl font-semibold">$</p>
             </div>
 
             {user ? (
