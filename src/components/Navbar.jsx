@@ -105,7 +105,7 @@ const Navbar = () => {
           </div>
           <div className="relative">
             <motion.img
-              whileTap={{ scale: 0.7 }}
+              whileTap={{ scale: 0.69 }}
               src={user ? user?.photoURL : Avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-md rounded-full drop-shadow-sm cursor-pointer"
               alt="avatarProfile"
