@@ -10,9 +10,9 @@ import CartContainer from "./CartContainer";
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
-  const incrementScrollValue = scrollValue + 200;
-  const decrementScrollValue = scrollValue - 200;
-
+  const incrementScrollValue = scrollValue + 1200;
+  const decrementScrollValue = scrollValue - 1200;
+  console.log(scrollValue);
   useEffect(() => {}, [scrollValue, cartShow]);
 
   return (

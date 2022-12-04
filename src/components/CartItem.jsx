@@ -8,14 +8,14 @@ import { actionType } from "../context/reducer";
 const CartItem = ({ item, flag, setFlag }) => {
   let items = [];
   const [qty, setQty] = useState(item.qty);
-  const [{ cartItems }, dispatch] = useStateValue();
+  const [{ cartItems }, dispatch] = useStateValue([]);
 
   const cartDispatch = () => {
-    localStorage.setItem("cartItems", JSON.stringify(items));
     dispatch({
       type: actionType.SET_CART_ITEMS,
       cartItems: items,
     });
+    localStorage.setItem("cartItems", JSON.stringify(items));
   };
 
   const updateQty = (action, id) => {

@@ -110,7 +110,7 @@ const CreateProduct = () => {
         setFields(true);
         setMsg("Data saved successfully");
         clearData();
-        setAlertStatus("Succes");
+        setAlertStatus("Success");
         setTimeout(() => {
           setFields(false);
         }, 4000);
