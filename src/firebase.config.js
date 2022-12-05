@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDnuGEQOu4VwIqFVpCv-eNCab77AcCV9Tw",
-  authDomain: "casa-branca-82b73.firebaseapp.com",
-  databaseURL: "https://casa-branca-82b73-default-rtdb.firebaseio.com",
-  projectId: "casa-branca-82b73",
-  storageBucket: "casa-branca-82b73.appspot.com",
-  messagingSenderId: "805450424689",
-  appId: "1:805450424689:web:77e61b14826f09d86596d0",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGIN_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
