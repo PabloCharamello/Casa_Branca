@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoFastFood } from "react-icons/io5";
 import { categories } from "../utils/DB";
 import { motion } from "framer-motion";
@@ -8,7 +8,7 @@ import { useStateValue } from "../context/StateProvider";
 const MenuContainer = () => {
   const [filter, setFilter] = useState({});
 
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [{ foodItems }] = useStateValue();
 
   return (
     <section className="w-full my-5 " id="Menu">

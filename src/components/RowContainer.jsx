@@ -74,7 +74,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         ))
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
-          <img src={NotFound} className="h-340" />
+          <img src={NotFound} className="h-340" alt="not found" />
           <p className="text-xl font-semibold text-slate-600 capitalize">
             Items not available
           </p>
