@@ -8,6 +8,7 @@ import { actionType } from "../context/reducer";
 import EmptyCartLottie from "./EmptyCartLottie";
 import LineasAbstractas from "./LineasAbstractas";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 // import Lottie from "lottie-react";
 // import girlThinking from "../assets/lotties/girlThinking.json";
@@ -100,7 +101,7 @@ const CartContainer = () => {
                 type="button"
                 whileTap={{ scale: 0.8 }}
               >
-                Chek out
+                <Link to="/chekout">Chek out</Link>
               </motion.button>
             ) : (
               <button
