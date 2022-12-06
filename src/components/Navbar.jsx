@@ -67,7 +67,9 @@ const Navbar = () => {
             alt="ecommerce Logo"
             className="w-10 drop-shadow-lg pb-2"
           />
-          <p className="text-slate-100 casaBranca text-semibold">Casa Branca</p>
+          <p className="text-slate-100 casaBranca text-semibold lg:text-[2.2rem]">
+            Casa Branca
+          </p>
         </Link>
         <div className="flex items-center gap-8">
           <motion.ul

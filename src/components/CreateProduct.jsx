@@ -173,7 +173,7 @@ const CreateProduct = () => {
               categories.map((item) => (
                 <option
                   required
-                  key={item.id}
+                  key={item?.id}
                   className="border-0 capitalize bg-white text-gray-600 text-sm"
                   value={item.urlParamName}
                 >

@@ -11,3 +11,4 @@ export { default as MenuContainer } from "./MenuContainer";
 export { default as CartContainer } from "./CartContainer";
 export { default as CartItem } from "./CartItem";
 export { default as ChekOutLoader } from "./ChekOutLoader";
+export { default as TrainLoader } from "./TrainLoader";
