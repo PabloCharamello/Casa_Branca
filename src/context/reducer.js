@@ -3,7 +3,7 @@ export const actionType = {
   SET_CART_ITEMS: "SET_CART_ITEMS",
   SET_FOOD_ITEMS: "SET_FOOD_ITEMS",
   SET_CART_SHOW: "SET_CART_SHOW",
-  SET_SHEEPPING_INFO: "SET_SHEEPPING_INFO",
+  SET_SHIPPING_INFO: "SET_SHIPPING_INFO",
 };
 
 const reducer = (state, action) => {
@@ -32,10 +32,10 @@ const reducer = (state, action) => {
         cartItems: action.cartItems,
       };
 
-    case actionType.SET_SHEEPPING_INFO:
+    case actionType.SET_SHIPPING_INFO:
       return {
         ...state,
-        sheppingInfo: action.sheppingInfo,
+        shippingInfo: action.sheppingInfo,
       };
 
     default:

@@ -16,6 +16,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
       cartItems: items,
     });
     localStorage.setItem("cartItems", JSON.stringify(items));
+    console.log(cartItems);
   };
 
   useEffect(() => {
