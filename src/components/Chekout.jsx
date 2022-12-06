@@ -94,7 +94,7 @@ const Chekout = () => {
 
   return (
     <>
-      <section className="z-10 grid grid-cols-1 md:grid-cols-2  w-full border border-gray-300 rounded-lg mt-3 md:mt-0">
+      <section className="overflow-hiden z-10 grid grid-cols-1 md:grid-cols-2  w-full border border-gray-300 rounded-lg mt-3 md:mt-0">
         <div className="z-10  w-full py-1 flex-1 flex flex-col items-center justify-center px-4 sm:px-16 md:px-8 lg:px-16 xl:px-16 xxl:px-16">
           {" "}
           <p className="text-textColor font-semibold mt-3 text-2xl">
