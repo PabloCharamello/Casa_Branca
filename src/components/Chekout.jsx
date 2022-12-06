@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useStateValue } from "../context/StateProvider";
 import { motion } from "framer-motion";
 
-import { saveShippingInfo } from "../utils/firebaseFunctions";
+import { getShippingInfo } from "../utils/firebaseFunctions";
+import { storage } from "../firebase.config";
+import { ref, uploadBytesResumable } from "firebase/storage";
+import { actionType } from "../context/reducer";
 
 const Chekout = () => {
   const [{ cartItems }] = useStateValue();
@@ -22,21 +25,22 @@ const Chekout = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
-  const [msg, setMsg] = useState("");
-  const [fields, setFields] = useState(null);
-  const [alertStatus, setAlertStatus] = useState("");
+  const [fields, setFields] = useState(false);
+  const [alertStatus, setAlertStatus] = useState("danger");
+  const [msg, setMsg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const saveDetails = () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     try {
       if (!name || !street || !street || !email || !phone || !city) {
         setFields(true);
         setMsg(`Product details must be completed`);
         setAlertStatus("danger");
-        // setTimeout(() => {
-        //   setFields(false);
-        //   setIsLoading(false);
-        // }, 4000);
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
       } else {
         const data = {
           id: `${Date.now()}`,
@@ -47,25 +51,26 @@ const Chekout = () => {
           email,
           city,
         };
-        saveShippingInfo(data);
-        // setIsLoading(false);
+
+        getShippingInfo(data);
+        setIsLoading(false);
         setFields(true);
         setMsg("Data saved successfully");
         clearData();
         setAlertStatus("Success");
-        // setTimeout(() => {
-        //   setFields(false);
-        // }, 4000);
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
       }
     } catch (error) {
       console.log(error);
       setFields(true);
-      setMsg(`Error while uploading: Try again!`);
+      setMsg(`Error while saving: Try again!`);
       setAlertStatus("danger");
-      // setTimeout(() => {
-      //  setFields(false);
-      //    setIsLoading(false);
-      // }, 4000);
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
     }
   };
 
@@ -78,77 +83,100 @@ const Chekout = () => {
     setCity("");
   };
 
+  const fetchAllDirections = async () => {
+    await getShippingInfo().then((data) => {
+      dispatchEvent({
+        type: actionType.SET_SHEEPPING_INFO,
+        shippingInfo: data,
+      });
+    });
+  };
+
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-2  w-full border border-gray-300 rounded-lg">
         <div className="w-full py-2 flex-1 flex flex-col items-center justify-center px-16">
           {" "}
-          <p>Sheeping information</p>
+          <p className="text-textColor font-semibold mt-3 text-2xl">
+            Sheeping information
+          </p>
           <label htmlFor="name" className="mt-4">
             Name:
           </label>
           <input
+            required
             type="text"
-            htmlFor="name"
-            placeholder="name"
+            id="name"
+            placeholder=" Type your name"
             className="w-full"
             value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="street" className="mt-2">
             Street:
           </label>
           <input
+            required
             type="text"
-            htmlFor="street"
-            placeholder="street"
+            id="street"
+            placeholder=" Type the street"
             className="w-full"
             value={street}
+            onChange={(e) => setStreet(e.target.value)}
           />
           <label htmlFor="corner" className="mt-2">
             Corner:
           </label>
           <input
+            required
             type="text"
-            htmlFor="corner"
-            placeholder="corner"
+            id="corner"
+            placeholder=" Type the corner"
             className="w-full"
             value={corner}
+            onChange={(e) => setCorner(e.target.value)}
           />
           <label htmlFor="city" className="mt-2">
             City:
           </label>
           <input
+            required
             type="text"
-            htmlFor="city"
-            placeholder="city"
+            id="city"
+            placeholder=" Type your city"
             className="w-full"
             value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
           <label htmlFor="email" className="mt-2">
             Email:
           </label>
           <input
+            required
             type="text"
-            htmlFor="email"
-            placeholder="email"
-            className="w-full"
+            placeholder=" Type your email"
+            id="email"
+            className="w-full h-full text-lg bg-slate-50  placeholder:text-gray-500 text-textColor placeholder:rounded-lg"
             value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="phone" className="mt-2">
             Phone:
           </label>
           <input
+            required
             type="text"
-            htmlFor="phone"
-            placeholder="phone"
+            placeholder=" Type your phone"
+            id="phone"
             className="w-full"
             value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <motion.button
             initial={{ x: -200 }}
             animate={{ x: 0 }}
             type="button"
-            className="mt-3 w-40 bg-gradient-to-br from-orange-400 to-orange-500 px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-200"
+            className="mb-3 mt-5 w-40 bg-gradient-to-br from-orange-400 to-orange-500 px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-200"
             onClick={() => saveDetails()}
           >
             <motion.p whileTap={{ scale: 0.8 }}>Submit!</motion.p>

@@ -21,7 +21,7 @@ export const getAllFoodItems = async () => {
   return items.docs.map((doc) => doc.data());
 };
 
-export const saveShippingInfo = async (data) => {
+export const getShippingInfo = async (data) => {
   await setDoc(doc(firestore, "shippingInfo", `${Date.now()}`), data, {
     merge: true,
   });

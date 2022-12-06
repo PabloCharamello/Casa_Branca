@@ -3,6 +3,7 @@ export const actionType = {
   SET_CART_ITEMS: "SET_CART_ITEMS",
   SET_FOOD_ITEMS: "SET_FOOD_ITEMS",
   SET_CART_SHOW: "SET_CART_SHOW",
+  SET_SHEEPPING_INFO: "SET_SHEEPPING_INFO",
 };
 
 const reducer = (state, action) => {
@@ -29,6 +30,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         cartItems: action.cartItems,
+      };
+
+    case actionType.SET_SHEEPPING_INFO:
+      return {
+        ...state,
+        sheppingInfo: action.sheppingInfo,
       };
 
     default:
