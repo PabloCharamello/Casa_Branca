@@ -3,8 +3,8 @@ import { useStateValue } from "../context/StateProvider";
 import { motion } from "framer-motion";
 
 import { getShippingInfo } from "../utils/firebaseFunctions";
-import { storage } from "../firebase.config";
-import { ref, uploadBytesResumable } from "firebase/storage";
+// import { storage } from "../firebase.config";
+// import { ref, uploadBytesResumable } from "firebase/storage";
 import { actionType } from "../context/reducer";
 import TrainLoader from "./TrainLoader";
 
@@ -26,7 +26,7 @@ const Chekout = () => {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [fields, setFields] = useState(false);
-  const [alertStatus, setAlertStatus] = useState("danger");
+  const [alertStatus, setAlertStatus] = useState("");
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,11 +36,7 @@ const Chekout = () => {
       if (!name || !street || !street || !email || !phone || !city) {
         setFields(true);
         setMsg(`Product details must be completed`);
-        setAlertStatus("danger");
-        setTimeout(() => {
-          setFields(false);
-          setIsLoading(false);
-        }, 4000);
+        setAlertStatus("wrong");
       } else {
         const data = {
           id: `${Date.now()}`,
@@ -58,19 +54,12 @@ const Chekout = () => {
         setMsg("Data saved successfully");
         clearData();
         setAlertStatus("Success");
-        setTimeout(() => {
-          setFields(false);
-        }, 4000);
       }
     } catch (error) {
       console.log(error);
       setFields(true);
       setMsg(`Error while saving: Try again!`);
       setAlertStatus("danger");
-      setTimeout(() => {
-        setFields(false);
-        setIsLoading(false);
-      }, 4000);
     }
   };
 
@@ -177,7 +166,11 @@ const Chekout = () => {
             animate={{ opacity: 100, x: 0 }}
             exit={{ opacity: 100, x: 0 }}
             type="button"
-            className="z-10 mt-4 mb-4 md:w-48 bg-gradient-to-br from-orange-400 to-orange-500 w-full px-4 py-2 rounded-lg hover:shadow-xl transition-all  duration-100 shadow-md"
+            className={`z-10 mt-4 mb-4 md:w-48 bg-gradient-to-br from-orange-400 to-orange-500 w-full px-4 py-2 rounded-lg transition-all  duration-100 shadow-md font-semibold ${
+              alertStatus === "wrong"
+                ? "bg-red-400 text-red-700 hover:-x-20"
+                : "bg-emerald-400 text-emerald-800 hover:x-20"
+            }`}
             onClick={() => saveDetails()}
           >
             <motion.p whileTap={{ scale: 0.8 }}>Submit!</motion.p>
