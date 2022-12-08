@@ -82,14 +82,15 @@ const Chekout = () => {
     setCity("");
   };
 
-  const fetchAllDirections = async () => {
-    await getShippingInfo().then((data) => {
-      dispatch({
-        type: actionType.SET_SHIPPING_INFO,
-        shippingInfo: data,
-      });
-    });
-  };
+  //Por si quiero recuperar los formularios enviados de los usuarios:
+  // const fetchAllDirections = async () => {
+  //   await getShippingInfo().then((data) => {
+  //     dispatch({
+  //       type: actionType.SET_SHIPPING_INFO,
+  //       shippingInfo: data,
+  //     });
+  //   });
+  // };
 
   return (
     <>
@@ -190,7 +191,7 @@ const Chekout = () => {
               initial={{ opacity: 0.5, x: -500 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0.5, x: -500 }}
-              className="duration-200 justify-center ease-out z-[100] w-full md:w-375 xxl:w-460 h-40 drop-shadow-md flex fixed"
+              className="duration-200 justify-center sm:items-center mb-60 sm:mb-60 ease-out z-[100] w-full md:mt-60 md:w-375 lg:mt-80 xl:mt-60 xxl:w-460 h-40 drop-shadow-md flex fixed"
             >
               <CellPhonePayment />
             </motion.div>
