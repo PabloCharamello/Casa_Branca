@@ -8,6 +8,8 @@ import { getShippingInfo } from "../utils/firebaseFunctions";
 import { actionType } from "../context/reducer";
 import TrainLoader from "./TrainLoader";
 import CartContainer from "./CartContainer";
+import { Link } from "react-router-dom";
+import CellPhonePayment from "./CellPhonePayment";
 
 const Chekout = () => {
   const [{ cartItems, cartShow }] = useStateValue();
@@ -41,7 +43,7 @@ const Chekout = () => {
         setTimeout(() => {
           setFields(false);
           setIsLoading(false);
-        }, 8000);
+        }, 5000);
       } else {
         const data = {
           id: `${Date.now()}`,
@@ -175,14 +177,24 @@ const Chekout = () => {
             exit={{ opacity: 100, x: 0 }}
             type="button"
             className={`z-10 mt-4 mb-4 md:w-48 bg-gradient-to-br from-orange-400 to-orange-500 w-full px-4 py-2 rounded-lg transition-all  duration-100 shadow-md font-semibold ${
-              alertStatus === "wrong"
-                ? "bg-red-400 text-red-800 hover:-x-20"
-                : "bg-emerald-400 text-emerald-800 hover:x-20"
+              alertStatus === "danger"
+                ? "bg-orange-500 text-red-800 hover:-x-20"
+                : "bg-green-400 text-emerald-800 hover:x-20"
             }`}
             onClick={() => saveDetails()}
           >
             <motion.p whileTap={{ scale: 0.8 }}>Submit!</motion.p>
           </motion.button>
+          {msg === "Shipping Information saved successfully" && (
+            <motion.div
+              initial={{ opacity: 0.5, x: -500 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0.5, x: -500 }}
+              className="duration-200 justify-center ease-out z-[100] w-full md:w-375 xxl:w-460 h-40 drop-shadow-md flex fixed"
+            >
+              <CellPhonePayment />
+            </motion.div>
+          )}
         </div>
 
         {fields && (
@@ -191,9 +203,9 @@ const Chekout = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className={`z-50 -mt-3 sm:mx-16 md:mx-10 lg:mx-28 xl:mx-56 xxl:mx-40 mx-5 duration-200 transition-opacity rounded-lg text-center text-lg font-semibold py-1 px-2 ${
+              className={`z-50 -mt-3 sm:mx-16 md:mx-10 lg:mx-20 xl:mx-20 xxl:mx-36 mx-5 duration-200 transition-opacity rounded-lg text-center border-2 border-orange-600 text-lg font-semibold py-1 px-2 ${
                 alertStatus === "danger"
-                  ? "bg-red-500 text-slate-200"
+                  ? "bg-orange-500 text-slate-200"
                   : "bg-emerald-400 text-emerald-800 hidden"
               }`}
             >
@@ -227,17 +239,20 @@ const Chekout = () => {
           exit={{ opacity: 0 }}
           className="z-[100] w-full md:w-375 xxl:w-460 h-20 hidden sm:hidden md:flex lg:flex xl:flex xxl:flexbg-slate-150 opacity-100 drop-shadow-md fixed bottom-0 right-0"
         >
-          <button className="z-[200] w-full rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-3 hover:shadow-lg transition-all duration-150 ease-out">
-            Shoop more!
-          </button>
+          <Link
+            to="/"
+            className="flex items-center justify-center z-[200] w-full rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-3 hover:shadow-lg opacity-90 transition-all duration-150 ease-out"
+          >
+            <button className="">Shoop more!</button>
+          </Link>
         </motion.div>
       )}
       {msg === "Shipping Information saved successfully" && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="z-[100] w-full md:w-375 xxl:w-460 h-20 bg-slate-150 opacity-100 drop-shadow-md flex fixed bottom-0 right-0"
+          initial={{ opacity: 0.5, x: -500 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0.5, x: -500 }}
+          className="duration-200 ease-out z-[100] w-full md:w-375 xxl:w-460 h-20 bg-slate-150 opacity-100 drop-shadow-md flex fixed bottom-0 right-0"
         >
           <button
             disabled={false}

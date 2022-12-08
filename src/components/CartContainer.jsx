@@ -48,13 +48,6 @@ const CartContainer = () => {
         >
           <MdCloseFullscreen className="z-[200]" />
         </motion.div>
-        {/* <p className="text-textColor text-lg font-semibold">Cart</p> */}
-        <motion.p
-          whileTap={{ scale: 0.75 }}
-          className="flex- items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md duration-75 transition-all cursor-pointer text-textColor text-base"
-        >
-          Clear <RiRefreshFill className="inline" />
-        </motion.p>
       </div>
 
       {/* bottom section */}
@@ -119,12 +112,12 @@ const CartContainer = () => {
           <div>
             <EmptyCartLottie />
           </div>
-          <a
-            href="/#categories"
+          <Link
+            to="/"
             className="text-xl text-orange-500 bg-slate-200 opacity-70 shadow-xl rounded-full py-1 px-5 mb-3 font-semibold"
           >
             Add some items to your cart!
-          </a>
+          </Link>
         </div>
       )}
     </motion.div>
