@@ -1,4 +1,4 @@
-import { useEffect, useState, dispatch } from "react";
+import { useEffect, useState } from "react";
 import { useStateValue } from "../context/StateProvider";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -28,6 +28,7 @@ const Chekout = () => {
   const [fields, setFields] = useState(false);
   const [alertStatus, setAlertStatus] = useState("");
   const [msg, setMsg] = useState(null);
+  // eslint-disable-next-line
   const [isLoading, setIsLoading] = useState(false);
 
   const saveDetails = () => {
@@ -82,7 +83,7 @@ const Chekout = () => {
   //Por si quiero recuperar los formularios enviados de los usuarios:
   // const fetchAllDirections = async () => {
   //   await getShippingInfo().then((data) => {
-  //     dispatch({
+  //   ({
   //       type: actionType.SET_SHIPPING_INFO,
   //       shippingInfo: data,
   //     });
