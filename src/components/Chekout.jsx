@@ -91,7 +91,7 @@ const Chekout = () => {
 
   return (
     <>
-      <section className="overflow-hiden z-10 grid grid-cols-1 md:grid-cols-2 w-full border items-center border-gray-300 rounded-lg mt-3 md:mt-0">
+      <section className="overflow-hiden z-10 grid grid-cols-1 md:grid-cols-2 w-full border  border-gray-300 rounded-lg mt-3 md:mt-0 items-center">
         <div className="z-10  w-full py-1 flex-1 flex flex-col items-center justify-center px-4 sm:px-16 md:px-8 lg:px-16 xl:px-16 xxl:px-16">
           {" "}
           <p className="text-textColor font-semibold mt-3 text-2xl">
@@ -186,25 +186,67 @@ const Chekout = () => {
         </div>
 
         {fields && (
-          <>
+          <div className="flex justify-center">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className={`z-50 -mt-3 sm:mx-16 md:mx-10 lg:mx-14 xl:mx-20 xxl:mx-28 mx-5 duration-200 transition-opacity rounded-lg text-center text-lg font-semibold py-1 px-2 ${
+              className={`z-50 -mt-3 sm:mx-16 md:mx-10 lg:mx-28 xl:mx-56 xxl:mx-40 mx-5 duration-200 transition-opacity rounded-lg text-center text-lg font-semibold py-1 px-2 ${
                 alertStatus === "danger"
                   ? "bg-red-500 text-slate-200"
-                  : "bg-emerald-400 text-emerald-800"
+                  : "bg-emerald-400 text-emerald-800 hidden"
               }`}
             >
               {msg}
             </motion.p>
-          </>
+          </div>
         )}
 
         <TrainLoader />
       </section>
       {cartShow && <CartContainer />}
+      {cartShow ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="z-[100] w-full md:w-375 xxl:w-460 h-20 bg-slate-150 opacity-100 drop-shadow-md flex fixed bottom-0 right-0"
+        >
+          <button
+            disabled={true}
+            className="z-[200] w-full rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-3 hover:shadow-lg transition-all duration-150 ease-out"
+          >
+            Complete the shipping form!
+          </button>
+        </motion.div>
+      ) : (
+        <motion.div
+          whileTap={{ scale: 0.85 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="z-[100] w-full md:w-375 xxl:w-460 h-20 hidden sm:hidden md:flex lg:flex xl:flex xxl:flexbg-slate-150 opacity-100 drop-shadow-md fixed bottom-0 right-0"
+        >
+          <button className="z-[200] w-full rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-3 hover:shadow-lg transition-all duration-150 ease-out">
+            Shoop more!
+          </button>
+        </motion.div>
+      )}
+      {msg === "Shipping Information saved successfully" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="z-[100] w-full md:w-375 xxl:w-460 h-20 bg-slate-150 opacity-100 drop-shadow-md flex fixed bottom-0 right-0"
+        >
+          <button
+            disabled={false}
+            className="z-[200] w-full rounded-full bg-gradient-to-tr from-orange-400 to-gray-600 text-slate-100 text-2x1 my-3 hover:shadow-lg  hover:text-orange-200 casaBranca hover:bg-orange-800 transition-all duration-200 ease-out"
+          >
+            Purchase
+          </button>
+        </motion.div>
+      )}
     </>
   );
 };

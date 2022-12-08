@@ -31,7 +31,6 @@ const CartContainer = () => {
       return accumulator + item.qty * item.price;
     }, 0);
     setTotal(totalPrice);
-    console.log(total);
   }, [total, flag]);
 
   return (
@@ -120,9 +119,12 @@ const CartContainer = () => {
           <div>
             <EmptyCartLottie />
           </div>
-          <p className="text-xl text-slate-600 shadow-xl rounded-full py-1 px-5 mb-3 font-semibold">
-            Add some items to your cart
-          </p>
+          <a
+            href="/#categories"
+            className="text-xl text-orange-500 bg-slate-200 opacity-70 shadow-xl rounded-full py-1 px-5 mb-3 font-semibold"
+          >
+            Add some items to your cart!
+          </a>
         </div>
       )}
     </motion.div>
