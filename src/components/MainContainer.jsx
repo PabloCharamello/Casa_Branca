@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useStateValue } from "../context/StateProvider";
 import HomeContainer from "./HomeContainer";
 import { motion } from "framer-motion";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
-import { useStateValue } from "../context/StateProvider";
 import MenuContainer from "./MenuContainer";
 import CartContainer from "./CartContainer";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const MainContainer = () => {
   const [{ foodItems, cartShow }] = useStateValue();

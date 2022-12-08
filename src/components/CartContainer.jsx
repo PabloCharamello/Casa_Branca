@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import { motion } from "framer-motion";
-import { RiRefreshFill } from "react-icons/ri";
-import { MdCloseFullscreen } from "react-icons/md";
 import { useStateValue } from "../context/StateProvider";
+import { motion } from "framer-motion";
 import { actionType } from "../context/reducer";
+import { Link } from "react-router-dom";
+import { MdCloseFullscreen } from "react-icons/md";
+
 import EmptyCartLottie from "./EmptyCartLottie";
 import LineasAbstractas from "./LineasAbstractas";
 import CartItem from "./CartItem";
-import { Link } from "react-router-dom";
 
-// import Lottie from "lottie-react";
-// import girlThinking from "../assets/lotties/girlThinking.json";
-const deliveryFees = 2.5;
+const deliveryFees = 65;
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -76,7 +73,7 @@ const CartContainer = () => {
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg ">Delivery</p>
-              <p className="text-gray-400 text-lg ">$2.5</p>
+              <p className="text-gray-400 text-lg ">${deliveryFees}</p>
             </div>
 
             <div className="w-full flex border-b border-gray-600 my-2"></div>
@@ -108,7 +105,6 @@ const CartContainer = () => {
         </div>
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-6">
-          {/* <img src={emptyCart} className="w-300" alt="emptyCart" /> */}
           <div>
             <EmptyCartLottie />
           </div>

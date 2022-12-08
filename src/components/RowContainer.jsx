@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MdShoppingBasket } from "react-icons/md";
-import { motion } from "framer-motion";
-import NotFound from "../assets/img/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+
+import { motion } from "framer-motion";
+import NotFound from "../assets/img/NotFound.svg";
+import { MdShoppingBasket } from "react-icons/md";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();

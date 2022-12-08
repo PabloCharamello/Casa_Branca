@@ -1,14 +1,11 @@
 import { useEffect, useState, dispatch } from "react";
 import { useStateValue } from "../context/StateProvider";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { getShippingInfo } from "../utils/firebaseFunctions";
-// import { storage } from "../firebase.config";
-// import { ref, uploadBytesResumable } from "firebase/storage";
-import { actionType } from "../context/reducer";
+
 import TrainLoader from "./TrainLoader";
 import CartContainer from "./CartContainer";
-import { Link } from "react-router-dom";
 import CellPhonePayment from "./CellPhonePayment";
 
 const Chekout = () => {

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
-import { motion } from "framer-motion";
-
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useStateValue } from "../context/StateProvider";
 import { app } from "../firebase.config";
+import { actionType } from "../context/reducer";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import Logo from "../assets/img/Logo1.png";
 import Avatar from "../assets/img/avatar.png";
-import { Link } from "react-router-dom";
-import { actionType } from "../context/reducer";
-import { useStateValue } from "../context/StateProvider";
 
 const Navbar = () => {
   const firebaseAuth = getAuth(app);

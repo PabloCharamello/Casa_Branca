@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  MdFastfood,
-  MdDelete,
-  MdFoodBank,
-  MdAttachMoney,
-} from "react-icons/md";
-import { categories } from "../utils/DB";
-import Loader from "./Loader";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 import { storage } from "../firebase.config";
+import { motion } from "framer-motion";
+import { categories } from "../utils/DB";
+import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
 import {
   deleteObject,
   getDownloadURL,
@@ -16,9 +12,14 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import UpToCloud from "./UpToCloud";
-import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from "../context/reducer";
+
+import Loader from "./Loader";
+import {
+  MdFastfood,
+  MdDelete,
+  MdFoodBank,
+  MdAttachMoney,
+} from "react-icons/md";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");

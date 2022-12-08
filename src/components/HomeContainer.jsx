@@ -1,8 +1,9 @@
 import React from "react";
+import { heroData } from "../utils/DB";
 import { motion } from "framer-motion";
+
 import Delivery from "../assets/img/delivery.webp";
 import HeroBg from "../assets/img/heroBg.webp";
-import { heroData } from "../utils/DB";
 import GirlThinking from "./GirlThinking";
 
 const HomeContainer = () => {

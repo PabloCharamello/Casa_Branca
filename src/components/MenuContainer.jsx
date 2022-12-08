@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { IoFastFood } from "react-icons/io5";
-import { categories } from "../utils/DB";
-import { motion } from "framer-motion";
-import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
+import { motion } from "framer-motion";
+import { categories } from "../utils/DB";
+import RowContainer from "./RowContainer";
+import { IoFastFood } from "react-icons/io5";
 
 const MenuContainer = () => {
   const [filter, setFilter] = useState({});
