@@ -120,7 +120,7 @@ const CartContainer = () => {
           <div>
             <EmptyCartLottie />
           </div>
-          <p className="text-xl text-textColor font-semibold">
+          <p className="text-xl text-slate-600 shadow-xl rounded-full py-1 px-5 mb-3 font-semibold">
             Add some items to your cart
           </p>
         </div>

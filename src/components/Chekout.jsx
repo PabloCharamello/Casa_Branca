@@ -7,9 +7,10 @@ import { getShippingInfo } from "../utils/firebaseFunctions";
 // import { ref, uploadBytesResumable } from "firebase/storage";
 import { actionType } from "../context/reducer";
 import TrainLoader from "./TrainLoader";
+import CartContainer from "./CartContainer";
 
 const Chekout = () => {
-  const [{ cartItems }] = useStateValue();
+  const [{ cartItems, cartShow }] = useStateValue();
   const [total, setTotal] = useState();
 
   useEffect(() => {
@@ -203,6 +204,7 @@ const Chekout = () => {
 
         <TrainLoader />
       </section>
+      {cartShow && <CartContainer />}
     </>
   );
 };
