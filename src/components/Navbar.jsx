@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16  bg-orange-500 shadow-white">
+    <header className="rounded-bl-[100%] fixed z-50 w-screen p-2 px-3 md:p-5 md:px-16  bg-orange-500 shadow-white">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-[30px] items-center justify-between">
         <Link
@@ -78,16 +78,16 @@ const Navbar = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-8"
           >
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-slate-100 hover:text-slate-600 duration-100 transition-all ease-in-out cursor-pointer">
               <Link to="/">Home</Link>
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-slate-100 hover:text-slate-600 duration-100 transition-all ease-in-out cursor-pointer">
               Menu
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-slate-100 hover:text-slate-600 duration-100 transition-all ease-in-out cursor-pointer">
               About Us
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base text-slate-100 hover:text-slate-600 duration-100 transition-all ease-in-out cursor-pointer">
               Service
             </li>
           </motion.ul>
@@ -96,7 +96,7 @@ const Navbar = () => {
             className="relative flex items-center justify-center"
             onClick={showCart}
           >
-            <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
+            <MdShoppingBasket className="text-slate-100 text-2xl cursor-pointer" />
             {cartItems && cartItems.length > 0 && (
               <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center ">
                 <p className="text-xs text-white font-semibold">

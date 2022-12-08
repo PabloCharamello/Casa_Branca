@@ -27,10 +27,20 @@ const reducer = (state, action) => {
       };
 
     case actionType.SET_CART_ITEMS:
+      // console.log(state.cartItems);
+      //console.log(action.cartItems);
+      // const product = state.cartItems.find(
+      //   (product) =>
+      //     product.id === action.cartItems[action.cartItems.length - 1].id
+      // );
+      // if (product) {
+      //   console.log("el pruducto ya existe en el carrito");
+      // } else {
       return {
         ...state,
         cartItems: action.cartItems,
       };
+    // }
 
     case actionType.SET_SHIPPING_INFO:
       return {
