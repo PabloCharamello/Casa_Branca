@@ -45,7 +45,9 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["REACT_APP_ADMIN_AUTH"]
+    "whitelist": [
+      "REACT_APP_ADMIN_AUTH"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

@@ -24,7 +24,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/pablocharamello/"
               class="hover:underline"
             >
-              <BsLinkedin className="h-9 w-9 mt-10 md:h-7 md:w-7 mb-[5.5px] drop-shadow-md" />
+              <BsLinkedin className="hover:scale-110 duration-200 transition-transform h-9 w-9 mt-10 md:h-7 md:w-7 mb-[5.5px] drop-shadow-md" />
             </a>
           </li>
           <li>
@@ -33,7 +33,7 @@ const Footer = () => {
               href="https://github.com/PabloCharamello/Casa_Branca"
               class="hover:underline"
             >
-              <AiFillGithub className="h-10 w-10 md:h-8 md:w-8 mb-1 ulFooter drop-shadow-md  ml-1 mr-20" />
+              <AiFillGithub className="hover:scale-110 duration-200 transition-transform h-10 w-10 md:h-8 md:w-8 mb-1 ulFooter drop-shadow-md  ml-1 mr-20" />
             </a>
           </li>
         </ul>
