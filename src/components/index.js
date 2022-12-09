@@ -15,3 +15,4 @@ export { default as TrainLoader } from "./TrainLoader";
 export { default as CellPhonePayment } from "./CellPhonePayment";
 export { default as Error404 } from "./Error404";
 export { default as Footer } from "./Footer";
+export { default as ThanksForPurchase } from "./ThanksForPurchase";

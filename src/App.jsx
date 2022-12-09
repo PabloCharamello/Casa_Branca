@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./tailwind.css";
 import Navbar from "./components/Navbar";
-import { CreateProduct, MainContainer } from "./components";
+import { CreateProduct, MainContainer, ThanksForPurchase } from "./components";
 import { AnimatePresence } from "framer-motion";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
@@ -35,6 +35,11 @@ const App = () => {
             <Route exact path="/" element={<MainContainer />} />
             <Route exact path="/createitem" element={<CreateProduct />} />
             <Route exact path="/chekout" element={<Chekout />} />
+            <Route
+              exact
+              path="/thanksForPurchase"
+              element={<ThanksForPurchase />}
+            />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </main>

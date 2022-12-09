@@ -253,12 +253,12 @@ const Chekout = () => {
           exit={{ opacity: 0.5, x: -500 }}
           className="duration-200 ease-out z-[100] w-full md:w-375 xxl:w-460 h-20 bg-slate-150 opacity-100 drop-shadow-md flex fixed bottom-0 right-0"
         >
-          <button
-            disabled={false}
-            className="z-[200] w-full rounded-full bg-gradient-to-tr from-orange-400 to-gray-600 text-slate-100 text-2x1 my-3 hover:shadow-lg  hover:text-orange-200 casaBranca hover:bg-orange-800 transition-all duration-200 ease-out"
+          <Link
+            to="/thanksForPurchase"
+            className="z-[200] w-full rounded-full bg-gradient-to-tr from-orange-400 to-gray-600 text-slate-100 text-2x1 my-3 hover:shadow-lg  hover:text-orange-200 casaBranca hover:bg-orange-800 transition-all duration-200 ease-out flex items-center justify-center"
           >
-            Purchase
-          </button>
+            <button disabled={false}>Purchase</button>
+          </Link>
         </motion.div>
       )}
     </>
