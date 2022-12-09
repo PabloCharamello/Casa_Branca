@@ -20,7 +20,11 @@ body {
 .casaBranca {
   font-family: "Fireplace PERSONAL USE ONLY", sans-serif;
   font-size: 2rem;
-  text-shadow: 0px 2px 3px rgb(69, 69, 69), 0px 2px 3px rgb(158, 158, 158);
+  text-shadow: 0px 2px 3px rgb(69, 69, 69), 0px 2px 3px rgb(81, 81, 81);
+}
+
+.ulFooter {
+  text-shadow: 0px 2px 3px rgba(226, 226, 226, 0.618);
 }
 
 @tailwind base;

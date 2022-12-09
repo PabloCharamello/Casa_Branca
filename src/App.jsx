@@ -30,7 +30,7 @@ const App = () => {
     <AnimatePresence>
       <div className="flex flex-col bg-primary">
         <Navbar />
-        <main className="mt-14 md:mt-20 px-3 md:px-16 py-4 w-full">
+        <main className="mt-14 md:mt-20 px-3 md:px-16 pt-4 w-full">
           <Routes>
             <Route exact path="/" element={<MainContainer />} />
             <Route exact path="/createitem" element={<CreateProduct />} />
