@@ -183,14 +183,12 @@ const Navbar = () => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-36 bg-gray-50 shadow-x1 rounded-lg absolute flex flex-col top-11 right-0"
             >
-              {user && user.email === process.env.REACT_APP_ADMIN_MAIL && (
+              {user && (
                 <div className="w-100 flex justify-between items-center hover:bg-slate-100 cursor-pointer transition-all duration-100 hover:shadow-md">
-                  <Link
-                    to="./createItem"
-                    className="flex px-4 items-center gap-3  pt-2 pb-1 transition-all duration-100 ease-in-out text-textColor text-base"
-                  >
-                    New Item
-                    <MdAdd className="ml-2  transition-all duration-100 ease-in-out text-textColor" />
+                  <Link to="./createItem">
+                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
+                      New Item <MdAdd />
+                    </p>
                   </Link>
                 </div>
               )}
