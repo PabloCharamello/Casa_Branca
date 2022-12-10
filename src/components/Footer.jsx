@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer class="p-1 bg-white rounded-tr-[100%] rounded-tl-xl  shadow md:px-6 dark:bg-orange-500 ">
-      <div class="sm:flex flex sm:justify-between lg:justify-between md:justify-between xl:justify-between xxl:justify-between flex-wrap ml-2 ">
-        <ul class="flex text-lg flex-wrap items-end dark:text-slate-100 ulFooter justify-center">
+    <footer className="p-1 bg-white rounded-tr-[100%] rounded-tl-xl  shadow md:px-6 dark:bg-orange-500 ">
+      <div className="sm:flex flex sm:justify-between lg:justify-between md:justify-between xl:justify-between xxl:justify-between flex-wrap ml-2 ">
+        <ul className="flex text-lg flex-wrap items-end dark:text-slate-100 ulFooter justify-center">
           <li>
-            <Link to="/" class="mr-3 hover:underline md:mr-6">
+            <Link to="/" className="mr-3 hover:underline md:mr-6">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/" class="mr-5 h-10 w-10 hover:underline md:mr-6">
+            <Link to="/" className="mr-5 h-10 w-10 hover:underline md:mr-6">
               Menu
             </Link>
           </li>
@@ -24,7 +24,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               href="https://www.linkedin.com/in/pablocharamello/"
-              class="hover:underline"
+              className="hover:underline"
             >
               <BsLinkedin className="hover:scale-110 duration-200 transition-transform h-9 w-9 mt-10 md:h-7 md:w-7 mb-[5.5px] drop-shadow-md" />
             </a>
