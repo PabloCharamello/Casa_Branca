@@ -242,7 +242,7 @@ const Chekout = () => {
             to="/"
             className="flex items-center justify-center z-[200] w-full rounded-full bg-gradient-to-tr from-gray-400 to-gray-600 text-gray-50 text-lg my-3 hover:shadow-lg opacity-90 transition-all duration-150 ease-out"
           >
-            <button className="">Shoop more!</button>
+            <button className="">Shop more!</button>
           </Link>
         </motion.div>
       )}
