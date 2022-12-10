@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../assets/img/Logo1.png";
 import { AiFillGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,18 +10,19 @@ const Footer = () => {
       <div class="sm:flex flex sm:justify-between lg:justify-between md:justify-between xl:justify-between xxl:justify-between flex-wrap ml-2 ">
         <ul class="flex text-lg flex-wrap items-end dark:text-slate-100 ulFooter justify-center">
           <li>
-            <a href="#" class="mr-3 hover:underline md:mr-6">
+            <Link to="/" class="mr-3 hover:underline md:mr-6">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" class="mr-5 h-10 w-10 hover:underline md:mr-6">
+            <Link to="/" class="mr-5 h-10 w-10 hover:underline md:mr-6">
               Menu
-            </a>
+            </Link>
           </li>
           <li>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://www.linkedin.com/in/pablocharamello/"
               class="hover:underline"
             >
@@ -30,6 +32,7 @@ const Footer = () => {
           <li>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://github.com/PabloCharamello/Casa_Branca"
               class="hover:underline"
             >
@@ -54,9 +57,9 @@ const Footer = () => {
       <hr class="my-1 border-gray-200 sm:mx-auto dark:border-slate-100 lg:my-1" />
       <span class="block text-sm text-gray-500 sm:text-center dark:text-slate-100">
         © 2022{" "}
-        <a href="" class="hover:underline">
+        <Link to="/" class="hover:underline">
           Casa Branca
-        </a>
+        </Link>
         . All Rights Reserved.
       </span>
     </footer>

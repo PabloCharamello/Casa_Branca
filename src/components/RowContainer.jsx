@@ -25,6 +25,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 
   useEffect(() => {
     addToCart();
+    // eslint-disable-next-line
   }, [items]);
 
   return (
