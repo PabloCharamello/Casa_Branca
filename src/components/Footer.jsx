@@ -40,10 +40,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <a
-          href="https://flowbite.com/"
-          class="flex items-center mb-4 sm:mb-0 mt-1"
-        >
+        <Link to="/" class="flex items-center mb-4 sm:mb-0 mt-1">
           <img
             src={Logo}
             class="mr-3 mb-3 h-12 sm:h-8 sm:mr-2"
@@ -52,12 +49,12 @@ const Footer = () => {
           <span class="casaBranca self-center xl:text-[2.2rem] lg:text-[2.2rem] md:text-[2.2rem] whitespace-nowrap dark:text-slate-100 sm:mr-2 sm:text-[1.8rem]">
             Casa Branca
           </span>
-        </a>
+        </Link>
       </div>
-      <hr class="my-1 border-gray-200 sm:mx-auto dark:border-slate-100 lg:my-1" />
+      <hr className="my-1 border-gray-200 sm:mx-auto dark:border-slate-100 lg:my-1" />
       <span class="block text-sm text-gray-500 sm:text-center dark:text-slate-100">
         © 2022{" "}
-        <Link to="/" class="hover:underline">
+        <Link to="/" className="hover:underline">
           Casa Branca
         </Link>
         . All Rights Reserved.
